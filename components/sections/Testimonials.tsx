@@ -24,10 +24,7 @@ export const Testimonials = () => {
   ];
 
   return (
-    <m.div 
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
+    <div 
       className="mt-32 w-full border-t border-white/5 pt-20"
     >
       <p className="text-[10px] uppercase tracking-[0.4em] text-teal-400 mb-12 font-black text-center">
@@ -52,6 +49,6 @@ export const Testimonials = () => {
           </m.div>
         ))}
       </div>
-    </m.div>
+    </div>
   );
 };

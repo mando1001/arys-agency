@@ -9,15 +9,15 @@ export const FeatureCard = ({ feature, index }: { feature: any, index: number })
   
   return (
     <m.div
-      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      initial={isMobile ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.95 }}
       whileInView={{ 
         opacity: 1, 
         y: 0, 
         scale: 1,
         borderColor: isMobile ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.05)'
       }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.4, delay: isMobile ? 0 : index * 0.1 }}
       className={`group relative rounded-[32px] border border-white/5 bg-[#0D0F14]/30 ${!isMobile ? 'backdrop-blur-xl' : ''} p-8 lg:p-12 overflow-hidden hover:border-white/10 transition-all duration-500 md:border-l md:border-l-white/5 border-l-2 ${feature.mobileAccent ?? ''} ${feature.className}`}
     >
       {/* Card Gradient Background - subtle on mobile, full on desktop hover */}

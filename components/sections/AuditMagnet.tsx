@@ -7,8 +7,8 @@ export const AuditMagnet = () => {
     <section id="audit" className="py-32 relative overflow-hidden bg-black">
       {/* Diagnostic Background Elements */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-teal-500 to-transparent animate-scan-fast" />
-        <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-blue-500 to-transparent animate-scan-slow" />
+        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-teal-500 to-transparent animate-scan-fast hidden md:block" />
+        <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-blue-500 to-transparent animate-scan-slow hidden md:block" />
         <div className="absolute inset-0 bg-grid-white opacity-5" />
       </div>
 

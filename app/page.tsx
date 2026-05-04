@@ -18,18 +18,9 @@ export default function Home() {
       <Navbar />
       <main className="bg-[#0A0B0D] text-white selection:bg-teal-500/30">
         <Hero />
-        
-        <Suspense fallback={<div className="h-96 bg-[#0A0B0D]" />}>
-          <Features />
-        </Suspense>
-
-        <Suspense fallback={<div className="h-96 bg-[#0A0B0D]" />}>
-          <AuditMagnet />
-        </Suspense>
-
-        <Suspense fallback={null}>
-          <ModalController />
-        </Suspense>
+        <Features />
+        <AuditMagnet />
+        <ModalController />
       </main>
       <Footer />
     </MotionProvider>

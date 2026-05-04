@@ -7,19 +7,17 @@ import { useIsMobile } from '../../hooks/useIsMobile';
 
 export const HeroVisual = () => {
   const isMobile = useIsMobile();
+  
   return (
-    <m.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay: 0.5 }}
-      className="w-full max-w-6xl mx-auto mt-32 relative group cursor-default"
-    >
-      {/* Decorative glow behind the whole visual */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-teal-500/10 blur-[120px] rounded-full group-hover:bg-teal-500/20 transition-all duration-700" />
+    <div className="w-full max-w-6xl mx-auto mt-32 relative group cursor-default">
+      {/* Decorative glow behind the whole visual - significantly reduced blur for mobile */}
+      <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-teal-500/10 ${isMobile ? 'blur-[40px]' : 'blur-[120px]'} rounded-full group-hover:bg-teal-500/20 transition-all duration-700`} />
 
-      <div className="relative rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-3xl p-8 lg:p-16 overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)]">
-        {/* Animated gradient sweep */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1500 ease-in-out" />
+      <div className={`relative rounded-[40px] border border-white/10 bg-white/5 ${!isMobile ? 'backdrop-blur-3xl' : ''} p-8 lg:p-16 overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)]`}>
+        {/* Animated gradient sweep - desktop only to save mobile CPU */}
+        {!isMobile && (
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1500 ease-in-out" />
+        )}
 
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16 relative z-10">
           {/* LEFT: Chaos */}
@@ -95,6 +93,6 @@ export const HeroVisual = () => {
           </div>
         </div>
       </div>
-    </m.div>
+    </div>
   );
 };

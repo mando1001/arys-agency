@@ -3,12 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { m, AnimatePresence } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import dynamic from 'next/dynamic';
-
-const PulsingBorder = dynamic(
-  () => import('@paper-design/shaders-react').then(m => ({ default: m.PulsingBorder })),
-  { ssr: false, loading: () => null }
-);
 
 export const StickyCTA = ({ openModal }: { openModal: () => void }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -100,11 +94,7 @@ export const StickyCTA = ({ openModal }: { openModal: () => void }) => {
             </m.button>
           ) : (
             <div className="relative group">
-              <div className="absolute inset-[-4px] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <PulsingBorder
-                  colors={["#2dd4bf", "#0891b2", "#134e4a", "#2dd4bf"]}
-                />
-              </div>
+              <div className="absolute inset-[-2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-teal-500/50 rounded-full blur-md" />
               <m.button
                 animate={{ x: mousePos.x, y: mousePos.y }}
                 onMouseMove={handleMouseMove}

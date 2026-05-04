@@ -32,7 +32,10 @@ export const FlowVisual = () => {
             />
             <m.circle
               r="30"
+              cx="0"
+              cy="0"
               className="fill-teal-500/5 stroke-teal-500/20"
+              initial={{ r: 30, opacity: 0.3 }}
               animate={{ r: [30, 45], opacity: [0.3, 0] }}
               transition={{ repeat: Infinity, duration: 2 }}
             />
@@ -61,8 +64,11 @@ export const FlowVisual = () => {
               />
               <m.circle
                 r="4"
+                cx={node.x}
+                cy={node.y}
                 className="fill-teal-400"
                 filter="url(#glow)"
+                initial={{ opacity: 0 }}
                 animate={{
                   cx: [node.x, 250],
                   cy: [node.y, 200],
@@ -126,8 +132,11 @@ export const BrainVisual = () => {
             <m.circle
               key={i}
               r="2"
+              cx="500"
+              cy="150"
               className="fill-orange-400"
               filter="url(#brainGlow)"
+              initial={{ opacity: 0 }}
               animate={{
                 cx: [500, 1100],
                 cy: [150, [80, 150, 220][i]],
