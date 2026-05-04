@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'motion/react';
 
 const Logo = () => (
-  <motion.div 
+  <m.div 
     whileHover={{ scale: 1.05 }}
     className="flex items-center gap-2 group cursor-pointer"
   >
@@ -14,7 +14,7 @@ const Logo = () => (
     <div className="text-2xl font-black tracking-tighter text-white">
       ARYS<span className="text-teal-400">.</span>
     </div>
-  </motion.div>
+  </m.div>
 );
 
 export default Logo;

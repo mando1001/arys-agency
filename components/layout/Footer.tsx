@@ -1,15 +1,12 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import { m } from 'motion/react';
 import { Mail, ArrowRight } from 'lucide-react';
-import { motion } from 'motion/react';
 
-const Footer = () => (
-  <footer className="bg-[#0A0B0D] py-20 border-t border-white/5 relative overflow-hidden">
-    <div className="absolute top-0 left-1/4 w-[1px] h-full bg-white/5" />
-    <div className="absolute top-0 left-2/4 w-[1px] h-full bg-white/5" />
-    <div className="absolute top-0 left-3/4 w-[1px] h-full bg-white/5" />
+export const Footer = () => (
+  <footer className="relative bg-[#07080A] border-t border-white/5 pt-20 pb-10 overflow-hidden">
+    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-teal-500/20 to-transparent" />
     
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
@@ -18,7 +15,7 @@ const Footer = () => (
             <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
               <div className="w-4 h-4 bg-black rounded-sm rotate-45" />
             </div>
-            <span className="text-xl font-black tracking-tighter uppercase">ARYS</span>
+            <span className="text-xl font-black tracking-tighter">ARYS</span>
           </div>
           <p className="text-gray-500 max-w-sm leading-relaxed text-sm">
             Az ARYS segít a modern vállalkozásoknak felszabadítani a potenciáljukat intelligens automatizációval és adatvezérelt folyamatoptimalizálással.
@@ -47,33 +44,31 @@ const Footer = () => (
           <h4 className="text-xs font-black uppercase tracking-[0.2em] text-white">Kapcsolat</h4>
           <div className="space-y-4">
              <p className="text-sm text-gray-500 leading-relaxed">
-                Készen állsz az automatizációra? <br />
-                Kérj ingyenes auditot még ma.
+               Készen állsz az automatizációra? <br />
+               Kérj ingyenes auditot még ma.
              </p>
-             <motion.a
+             <m.a
                whileHover={{ scale: 1.02 }}
                whileTap={{ scale: 0.98 }}
                href="#audit"
                className="inline-flex items-center gap-2 text-teal-400 text-[10px] font-black uppercase tracking-[0.2em] border-b border-teal-500/20 pb-1 hover:border-teal-400 transition-all"
              >
                Audit indítása <ArrowRight size={12} />
-             </motion.a>
+             </m.a>
           </div>
         </div>
       </div>
 
       <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 gap-6">
         <p className="text-[10px] text-gray-600 uppercase tracking-widest font-bold">
-          &copy; {new Date().getFullYear()} ARYS AGENCY — ALL RIGHTS RESERVED
+          &copy; 2026 ARYS — ALL RIGHTS RESERVED
         </p>
         <div className="flex gap-8 text-[10px] text-gray-600 uppercase tracking-widest font-bold">
-          <Link href="/impressum" className="hover:text-white transition-colors cursor-pointer">IMPRESSUM</Link>
-          <Link href="/privacy" className="hover:text-white transition-colors cursor-pointer">PRIVACY</Link>
-          <Link href="/terms" className="hover:text-white transition-colors cursor-pointer">TERMS</Link>
+          <a href="/impressum" className="hover:text-white transition-colors cursor-pointer">IMPRESSUM</a>
+          <a href="/privacy" className="hover:text-white transition-colors cursor-pointer">PRIVACY</a>
+          <a href="/terms" className="hover:text-white transition-colors cursor-pointer">TERMS</a>
         </div>
       </div>
     </div>
   </footer>
 );
-
-export default Footer;
