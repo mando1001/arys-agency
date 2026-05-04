@@ -1,0 +1,14 @@
+node_modules/
+.next/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+skills/
+.vscode/
+*.txt
+tsconfig.tsbuildinfo
+brainstorming/
+error-handling/
+docs/
