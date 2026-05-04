@@ -1,7 +1,4 @@
-'use client';
-
 import React from 'react';
-import { m } from 'motion/react';
 import { Mail, ArrowRight } from 'lucide-react';
 
 export const Footer = () => (
@@ -47,14 +44,12 @@ export const Footer = () => (
                Készen állsz az automatizációra? <br />
                Kérj ingyenes auditot még ma.
              </p>
-             <m.a
-               whileHover={{ scale: 1.02 }}
-               whileTap={{ scale: 0.98 }}
+             <a
                href="#audit"
                className="inline-flex items-center gap-2 text-teal-400 text-[10px] font-black uppercase tracking-[0.2em] border-b border-teal-500/20 pb-1 hover:border-teal-400 transition-all"
              >
                Audit indítása <ArrowRight size={12} />
-             </m.a>
+             </a>
           </div>
         </div>
       </div>

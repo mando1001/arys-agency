@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import { AuditMagnet } from '../components/sections/AuditMagnet';
 import { StickyCTA } from '../components/layout/StickyCTA';
 
 const AuditModal = dynamic(
@@ -15,9 +14,14 @@ export const ModalController = () => {
   const openModal = () => setShowAuditModal(true);
   const closeModal = () => setShowAuditModal(false);
 
+  useEffect(() => {
+    const handleOpen = () => setShowAuditModal(true);
+    window.addEventListener('open-audit', handleOpen);
+    return () => window.removeEventListener('open-audit', handleOpen);
+  }, []);
+
   return (
     <>
-      <AuditMagnet openModal={openModal} />
       <StickyCTA openModal={openModal} />
       {showAuditModal && (
         <AuditModal isOpen={showAuditModal} onClose={closeModal} />
