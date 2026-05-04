@@ -561,10 +561,11 @@ const Features = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className={`group relative rounded-[32px] border border-white/5 bg-[#0D0F14]/50 backdrop-blur-xl p-8 lg:p-12 overflow-hidden hover:border-white/10 transition-all duration-500 md:border-l md:border-l-white/5 border-l-2 ${feature.mobileAccent ?? ''} ${feature.className}`}
+              whileTap={{ scale: 0.97 }}
+              className={`group relative rounded-[32px] border border-white/5 bg-[#0D0F14]/30 md:backdrop-blur-xl p-8 lg:p-12 overflow-hidden hover:border-white/10 transition-all duration-500 md:border-l md:border-l-white/5 border-l-2 ${feature.mobileAccent ?? ''} ${feature.className}`}
             >
-              {/* Card Gradient Background - always subtle on mobile, full on desktop hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700`} />
+              {/* Card Gradient Background - subtle on mobile, full on desktop hover */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-50 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700`} />
               
               <div className="relative z-10 h-full flex flex-col">
                 <div className="flex items-start justify-between mb-8">
