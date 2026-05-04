@@ -103,7 +103,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-6xl md:text-8xl lg:text-[6.5rem] font-bold tracking-tighter leading-[1.05] md:leading-[0.9] mb-8"
         >
-          Növeld a <span className="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent italic px-1">profitot</span>, <br />
+          Növeld a <span className="inline-block bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent italic px-1 py-1">profitot</span>, <br />
           csökkentsd a céges káoszt.
         </motion.h1>
 
@@ -546,7 +546,7 @@ const Features = () => {
             className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-8"
           >
             Változtasd a káoszt <br />
-            <span className="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent italic px-2">átlátható növekedéssé.</span>
+            <span className="inline-block bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent italic px-2 py-1">átlátható növekedéssé.</span>
           </motion.h2>
           <p className="text-gray-400 text-lg leading-relaxed">
             A központosított rendszerek és okos munkafolyamatok kombinációjával cégéből eltüntetjük a súrlódásokat. Az eredmény: kiszámítható profit és tiszta fej.
@@ -1275,7 +1275,7 @@ const AuditMagnet = ({ openModal }: { openModal: () => void }) => {
               className="text-4xl md:text-7xl font-bold tracking-tighter leading-tight"
             >
               Találjuk meg a <br />
-              <span className="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent italic px-2">növekedési gátakat.</span>
+              <span className="inline-block bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent italic px-2 py-1">növekedési gátakat.</span>
             </motion.h2>
 
             <motion.p
