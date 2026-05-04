@@ -101,9 +101,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-6xl md:text-8xl lg:text-[6.5rem] font-bold tracking-tighter leading-[0.9] mb-8"
+          className="text-6xl md:text-8xl lg:text-[6.5rem] font-bold tracking-tighter leading-[1.05] md:leading-[0.9] mb-8"
         >
-          Növeld a <span className="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent italic px-2">profitot</span>, <br />
+          Növeld a <span className="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent italic px-1">profitot</span>, <br />
           csökkentsd a céges káoszt.
         </motion.h1>
 
