@@ -26,7 +26,12 @@ import {
   Zap,
   Shield
 } from 'lucide-react';
-import { PulsingBorder } from "@paper-design/shaders-react";
+import dynamic from 'next/dynamic';
+
+const PulsingBorder = dynamic(
+  () => import('@paper-design/shaders-react').then(m => ({ default: m.PulsingBorder })),
+  { ssr: false, loading: () => null }
+);
 
 // Shared hook: detect mobile once at module level via media query
 const useIsMobile = () => {
@@ -1520,7 +1525,7 @@ export default function Home() {
       <Footer />
 
       <StickyCTA openModal={() => setIsModalOpen(true)} />
-      <AuditModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      {isModalOpen && <AuditModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
     </main>
   );
 }
