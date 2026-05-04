@@ -557,11 +557,10 @@ const Features = () => {
           {features.map((feature, i) => (
             <motion.div
               key={feature.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              whileTap={{ scale: 0.97 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               className={`group relative rounded-[32px] border border-white/5 bg-[#0D0F14]/30 md:backdrop-blur-xl p-8 lg:p-12 overflow-hidden hover:border-white/10 transition-all duration-500 md:border-l md:border-l-white/5 border-l-2 ${feature.mobileAccent ?? ''} ${feature.className}`}
             >
               {/* Card Gradient Background - subtle on mobile, full on desktop hover */}
