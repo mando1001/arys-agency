@@ -488,6 +488,7 @@ const Features = () => {
       benefits: ['Zero-error pipeline', '80% időmegtakarítás', 'Skálázható alapok'],
       className: 'md:col-span-8 md:row-span-2',
       gradient: 'from-teal-500/20 via-teal-500/5 to-transparent',
+      mobileAccent: 'border-l-teal-500/60 [background:linear-gradient(135deg,rgba(45,212,191,0.06),transparent_60%)]',
       visual: <FlowVisual />
     },
     {
@@ -498,7 +499,8 @@ const Features = () => {
       icon: <Activity className="w-8 h-8 text-blue-400" />,
       benefits: ['Automata naptár', '24/7 válaszadás'],
       className: 'md:col-span-4 md:row-span-1',
-      gradient: 'from-blue-500/20 via-blue-500/5 to-transparent'
+      gradient: 'from-blue-500/20 via-blue-500/5 to-transparent',
+      mobileAccent: 'border-l-blue-500/60 [background:linear-gradient(135deg,rgba(59,130,246,0.06),transparent_60%)]',
     },
     {
       id: 'brand',
@@ -508,7 +510,8 @@ const Features = () => {
       icon: <Fingerprint className="w-8 h-8 text-purple-400" />,
       benefits: ['Modern tech stack', 'Személyre szabott UI'],
       className: 'md:col-span-4 md:row-span-1',
-      gradient: 'from-purple-500/20 via-purple-500/5 to-transparent'
+      gradient: 'from-purple-500/20 via-purple-500/5 to-transparent',
+      mobileAccent: 'border-l-purple-500/60 [background:linear-gradient(135deg,rgba(168,85,247,0.06),transparent_60%)]',
     },
     {
       id: 'brain',
@@ -519,6 +522,7 @@ const Features = () => {
       benefits: ['Azonnali válaszok', 'Központosított adatok'],
       className: 'md:col-span-12 md:row-span-1',
       gradient: 'from-orange-500/20 via-orange-500/5 to-transparent',
+      mobileAccent: 'border-l-orange-500/60 [background:linear-gradient(135deg,rgba(251,146,60,0.06),transparent_60%)]',
       visual: <BrainVisual />
     }
   ];
@@ -557,10 +561,10 @@ const Features = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className={`group relative rounded-[32px] border border-white/5 bg-[#0D0F14]/50 backdrop-blur-xl p-8 lg:p-12 overflow-hidden hover:border-white/10 transition-all duration-500 ${feature.className}`}
+              className={`group relative rounded-[32px] border border-white/5 bg-[#0D0F14]/50 backdrop-blur-xl p-8 lg:p-12 overflow-hidden hover:border-white/10 transition-all duration-500 md:border-l md:border-l-white/5 border-l-2 ${feature.mobileAccent ?? ''} ${feature.className}`}
             >
-              {/* Card Gradient Background */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+              {/* Card Gradient Background - always subtle on mobile, full on desktop hover */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700`} />
               
               <div className="relative z-10 h-full flex flex-col">
                 <div className="flex items-start justify-between mb-8">
