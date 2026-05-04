@@ -220,13 +220,8 @@ const HeroVisual = () => {
               { icon: <FileText size={18} />, title: 'Manuális adatrögzítés', desc: 'Magas hibafaktor', color: 'red' },
               { icon: <Users size={18} />, title: 'Elveszett potenciális leadek', desc: 'Kieső bevétel', color: 'red' }
             ].map((item, idx) => (
-              <motion.div
+              <div
                 key={idx}
-                animate={isMobile ? {} : { 
-                  x: [0, idx % 2 === 0 ? -5 : 5, 0], 
-                  rotate: [0, idx % 2 === 0 ? -1 : 1, 0] 
-                }}
-                transition={{ repeat: Infinity, duration: 4 + idx, ease: 'easeInOut' }}
                 className="flex items-center gap-5 p-5 rounded-3xl bg-[#0A0B0D]/40 border border-white/5 text-gray-400 grayscale group-hover:grayscale-0 transition-all duration-700 hover:border-red-500/20"
               >
                 <div className="p-4 rounded-2xl bg-white/5 text-gray-500">{item.icon}</div>
@@ -234,7 +229,7 @@ const HeroVisual = () => {
                   <span className="text-sm font-bold text-gray-300">{item.title}</span>
                   <span className="text-[10px] text-red-400/60 font-bold bg-red-500/5 px-2 py-0.5 rounded-full mt-2 border border-red-500/10 uppercase tracking-wider">{item.desc}</span>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
@@ -262,27 +257,10 @@ const HeroVisual = () => {
               )}
             </motion.div>
 
-            {/* Workflow particles (from left to center) */}
-            {[0, 1, 2].map((i) => (
-              <motion.div
-                key={`p-in-${i}`}
-                className="hidden lg:block absolute left-[-100px] w-2 h-2 rounded-full bg-teal-400 blur-[2px]"
-                style={{ top: `${30 + i * 20}%` }}
-                animate={{ x: [0, 100], opacity: [0, 1, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: 'linear', delay: i * 0.4 }}
-              />
-            ))}
-
-            {/* Workflow particles (from center to right) */}
-            {[0, 1, 2].map((i) => (
-              <motion.div
-                key={`p-out-${i}`}
-                className="hidden lg:block absolute right-[-100px] w-2 h-2 rounded-full bg-teal-400 blur-[2px]"
-                style={{ top: `${30 + i * 20}%` }}
-                animate={{ x: [0, 100], opacity: [0, 1, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: 'linear', delay: i * 0.4 + 0.75 }}
-              />
-            ))}
+            {/* Connecting dot left */}
+            <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-teal-400/40" />
+            {/* Connecting dot right */}
+            <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-teal-400/40" />
           </div>
 
           {/* RIGHT: Order */}
@@ -331,15 +309,15 @@ const FlowVisual = () => {
           </defs>
           {/* Central ARYS Node */}
           <g transform="translate(250, 200)">
-            <motion.rect
+            {/* Static rect (CSS animated to avoid foreignObject displacement) */}
+            <rect
               width="80"
               height="80"
               x="-40"
               y="-40"
               rx="24"
-              className="fill-teal-500/10 stroke-teal-500/30 backdrop-blur-xl"
-              animate={{ rotate: [0, 90], scale: [1, 1.05, 1] }}
-              transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+              className="fill-teal-500/10 stroke-teal-500/30"
+              style={{ transformBox: 'fill-box', transformOrigin: 'center', animation: 'spin 10s linear infinite' }}
             />
             <motion.circle
               r="30"
@@ -347,12 +325,13 @@ const FlowVisual = () => {
               animate={{ r: [30, 45], opacity: [0.3, 0] }}
               transition={{ repeat: Infinity, duration: 2 }}
             />
-            <foreignObject x="-20" y="-20" width="40" height="40">
-              <div className="w-full h-full flex items-center justify-center">
-                <Settings className="text-teal-400 w-8 h-8 animate-spin-slow" />
-              </div>
-            </foreignObject>
           </g>
+          {/* Settings icon in own foreignObject at absolute SVG coords — NOT inside animated g */}
+          <foreignObject x="230" y="180" width="40" height="40">
+            <div className="w-full h-full flex items-center justify-center">
+              <Settings className="text-teal-400 w-8 h-8 animate-spin-slow" />
+            </div>
+          </foreignObject>
           {/* Surrounding Nodes and Connections */}
           {[
             { icon: <Mail className="w-5 h-5" />, x: 100, y: 100, delay: 0 },
@@ -482,12 +461,16 @@ const BrainVisual = () => {
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ repeat: Infinity, duration: 4 }}
             />
-            <foreignObject x="-20" y="-20" width="40" height="40">
-              <div className="w-full h-full flex items-center justify-center">
-                <Brain className="text-orange-400 w-10 h-10 group-hover:scale-110 transition-transform duration-500 origin-center" />
-              </div>
-            </foreignObject>
           </g>
+          {/* Brain icon in own foreignObject at absolute SVG coords — NOT inside animated g */}
+          <foreignObject x="470" y="120" width="60" height="60">
+            <div
+              className="w-full h-full flex items-center justify-center transition-transform duration-500"
+              style={{ transformOrigin: 'center center' }}
+            >
+              <Brain className="text-orange-400 w-8 h-8" />
+            </div>
+          </foreignObject>
         </svg>
       </div>
     </div>
