@@ -136,13 +136,13 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
       whileHover={{ scale: 1.02, y: -2 }}
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
-      className={`relative flex flex-col items-center justify-center p-8 rounded-[2rem] border-2 transition-all duration-500 ${
+      className={`relative flex flex-col items-center justify-center p-6 rounded-[2rem] border-2 transition-all duration-500 ${
         isSelected 
         ? 'border-accent bg-accent/10 shadow-xl shadow-accent/10' 
         : 'border-white/5 bg-white/[0.03] hover:border-white/10 hover:bg-white/[0.05]'
       }`}
     >
-      <div className={`mb-4 p-4 rounded-2xl transition-all ${isSelected ? 'text-background bg-accent shadow-lg shadow-accent/20' : 'text-white/20 bg-white/5 border border-white/10'}`}>
+      <div className={`mb-3 p-3 rounded-2xl transition-all ${isSelected ? 'text-background bg-accent shadow-lg shadow-accent/20' : 'text-white/20 bg-white/5 border border-white/10'}`}>
         {icon}
       </div>
       <span className={`text-sm font-bold text-center tracking-tight font-body ${isSelected ? 'text-primary' : 'text-white/40'}`}>
@@ -174,7 +174,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
         <m.div
           initial={{ y: 40, opacity: 0, scale: 0.95 }}
           animate={{ y: 0, opacity: 1, scale: 1 }}
-          className="w-full max-w-4xl glass-card-premium border border-white/10 rounded-[3rem] shadow-2xl shadow-black/80 relative max-h-[90vh] flex flex-col"
+          className="w-full max-w-4xl glass-card-premium border border-white/10 rounded-[3rem] shadow-2xl shadow-black/80 relative max-h-[95vh] flex flex-col"
         >
           {/* Progress Bar */}
           <div className="absolute top-0 left-0 w-full h-2 bg-white/5 z-20 overflow-hidden rounded-t-[3rem]">
@@ -185,7 +185,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
             />
           </div>
 
-          <div className="p-8 md:p-20 overflow-y-auto flex-1 custom-scrollbar">
+          <div className="p-6 md:p-12 overflow-y-auto flex-1 custom-scrollbar">
             <AnimatePresence mode="wait">
               {isScanning ? (
                 <m.div
@@ -218,14 +218,14 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="space-y-12"
+                      className="space-y-8"
                     >
                       <div className="space-y-4">
                         <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">01 / 10</span>
                         <h3 className="text-4xl md:text-6xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Mi okozza a legtöbb napi fejfájást?</h3>
                         <p className="text-secondary text-base italic font-body">Többet is választhatsz</p>
                       </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {[
                           { id: 'data', title: 'Manuális adatrögzítés & Másolás', icon: <Database size={24} /> },
                           { id: 'comm', title: 'Kaotikus ügyfélkommunikáció', icon: <Mail size={24} /> },
@@ -255,7 +255,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                           whileTap={{ scale: 0.95 }}
                           onClick={nextStep}
                           disabled={formData.mainObstacles.length === 0}
-                          className="px-10 py-5 bg-primary text-background disabled:opacity-30 font-black rounded-2xl transition-all flex items-center gap-3 group uppercase tracking-widest text-xs shadow-xl shadow-primary/10"
+                          className="px-10 py-5 bg-accent text-background disabled:opacity-30 font-black rounded-2xl transition-all flex items-center gap-3 group uppercase tracking-widest text-xs shadow-xl shadow-accent/20"
                         >
                           Tovább <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </m.button>
@@ -269,13 +269,13 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="space-y-12"
+                      className="space-y-8"
                     >
                       <div className="space-y-4">
                         <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">02 / 10</span>
                         <h3 className="text-4xl md:text-6xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Mennyi munkaórát égetnek el a repetitív folyamatok?</h3>
                       </div>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {[
                           { id: '1-5', title: '1-5 óra', icon: <Calendar size={24} /> },
                           { id: '5-15', title: '5-15 óra', icon: <Activity size={24} /> },
@@ -503,13 +503,13 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="space-y-12"
+                      className="space-y-8"
                     >
                       <div className="space-y-4">
                         <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">09 / 10</span>
                         <h3 className="text-4xl md:text-6xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Mikorra szeretnéd az eredményeket?</h3>
                       </div>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {[
                           { id: 'now', title: 'Azonnal (égető)', icon: <Zap size={24} /> },
                           { id: 'month', title: '1 hónapon belül', icon: <Calendar size={24} /> },
@@ -533,7 +533,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="space-y-12"
+                      className="space-y-6"
                     >
                       <div className="space-y-6">
                         <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">10 / 10</span>
@@ -587,7 +587,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                           whileTap={{ scale: 0.98 }}
                           onClick={submitForm}
                           disabled={!formData.name || !formData.email || !formData.companyName}
-                          className="w-full py-6 bg-primary text-background disabled:bg-white/10 disabled:text-white/20 font-black rounded-2xl transition-all shadow-2xl shadow-primary/10 flex items-center justify-center gap-4 uppercase tracking-widest text-xs"
+                          className="w-full py-6 bg-accent text-background disabled:bg-white/10 disabled:text-white/20 font-black rounded-2xl transition-all shadow-2xl shadow-accent/20 flex items-center justify-center gap-4 uppercase tracking-widest text-xs"
                         >
                           Elemzés Indítása <ArrowRight size={18} />
                         </m.button>
@@ -600,14 +600,14 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       key="step11"
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      className="text-center py-10 space-y-12"
+                      className="text-center py-6 space-y-8"
                     >
                       <div className="relative inline-block">
                         <m.div 
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
                           transition={{ type: "spring", damping: 12 }}
-                          className="w-28 h-28 rounded-full bg-accent/10 flex items-center justify-center border-2 border-accent"
+                          className="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center border-2 border-accent"
                         >
                           <CheckCircle2 className="w-14 h-14 text-accent" />
                         </m.div>
@@ -617,7 +617,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                           className="absolute inset-0 rounded-full border-2 border-accent"
                         />
                       </div>
-                      <div className="space-y-6">
+                      <div className="space-y-4">
                         <h3 className="text-5xl font-bold text-primary tracking-tighter italic font-heading">Köszönjük!</h3>
                         <p className="text-secondary text-xl max-w-sm mx-auto font-body leading-relaxed">
                           Az audit sikeresen lezárult. Hamarosan érkezünk a <span className="text-accent font-bold underline">diagnosztikai riporttal</span> és a következő lépésekkel.
