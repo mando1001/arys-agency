@@ -59,16 +59,16 @@ export const Testimonials = () => {
   };
 
   return (
-    <section className="py-32 relative overflow-hidden bg-background border-t border-white/5">
+    <section className="py-20 md:py-32 relative overflow-hidden bg-background border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Side: Content & Nav */}
           <div className="space-y-10">
             <div className="space-y-6">
               <div className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">
                 Sikertörténetek
               </div>
-              <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-primary font-heading uppercase leading-[0.95]">
+              <h2 className="text-4xl md:text-7xl font-bold tracking-tighter text-primary font-heading uppercase leading-[0.95] text-balance">
                 Akik már <br />
                 <span className="inline-block text-accent-gradient italic px-2">skálázódnak.</span>
               </h2>

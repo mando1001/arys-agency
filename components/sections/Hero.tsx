@@ -29,7 +29,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-48 pb-20 overflow-hidden bg-background">
+    <section className="relative min-h-screen flex items-center pt-32 md:pt-48 pb-20 overflow-hidden bg-background">
       {/* Premium Background Effects */}
       <div className="absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)] gpu-accel will-change-transform">
         <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[60px] md:blur-[100px] animate-pulse" />
@@ -48,7 +48,7 @@ export const Hero = () => {
         </div>
 
         <h1 
-          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.05] md:leading-[0.95] mb-10 text-primary font-heading uppercase"
+          className="text-4xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.05] md:leading-[0.95] mb-10 text-primary font-heading uppercase text-balance"
         >
           Növeld a <span className="inline-block text-accent-gradient italic px-2">profitot</span>, <br />
           ne a <span className="text-secondary">létszámot.</span>

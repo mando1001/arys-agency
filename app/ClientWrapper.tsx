@@ -27,11 +27,11 @@ const ModalController = dynamic(() => import('./ModalController').then(mod => mo
 export function ClientWrapper() {
   return (
     <>
-      <Suspense fallback={<div className="h-96 w-full bg-[#0A0B0D]" />}>
-        <Features />
-      </Suspense>
       <Suspense fallback={null}>
         <Testimonials />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 w-full bg-[#0A0B0D]" />}>
+        <Features />
       </Suspense>
       <Suspense fallback={null}>
         <FAQ />

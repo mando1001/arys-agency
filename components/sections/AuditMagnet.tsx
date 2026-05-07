@@ -11,7 +11,7 @@ export const AuditMagnet = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="relative p-12 md:p-24 rounded-[4rem] border border-white/10 glass-card-premium overflow-hidden text-center shadow-2xl shadow-black/50">
+        <div className="relative px-6 py-12 md:p-24 rounded-[3rem] md:rounded-[4rem] border border-white/10 glass-card-premium overflow-hidden text-center shadow-2xl shadow-black/50">
           {/* Subtle Glow behind content */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 bg-accent/5 blur-[120px] pointer-events-none" />
           
@@ -21,9 +21,9 @@ export const AuditMagnet = () => {
               Rendszerdiagnosztika Elérhető
             </div>
 
-            <h2 className="text-4xl md:text-7xl font-bold tracking-tighter leading-[1.1] text-primary font-heading uppercase">
+            <h2 className="text-2xl md:text-7xl font-bold tracking-tighter leading-[1.1] text-primary font-heading uppercase text-balance">
               Állítsd meg a <br />
-              <span className="inline-block text-accent-gradient italic px-2 text-5xl md:text-8xl">profit-szivárgást.</span>
+              <span className="inline-block text-accent-gradient italic px-2 text-3xl md:text-8xl">profit-szivárgást.</span>
             </h2>
 
             <p className="text-secondary text-lg md:text-xl leading-relaxed max-w-2xl mx-auto font-body">
