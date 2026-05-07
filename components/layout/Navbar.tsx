@@ -38,7 +38,7 @@ export const Navbar = () => {
     <header 
       className={`fixed top-4 left-4 right-4 z-[90] transition-all duration-500 ease-[0.22,1,0.36,1] max-w-7xl mx-auto ${
         isScrolled 
-          ? 'glass-card-premium py-3 rounded-2xl border-slate-200' 
+          ? 'glass-card-premium py-3 rounded-2xl border-white/10' 
           : 'bg-transparent py-6 border-transparent'
       }`}
     >
@@ -56,14 +56,14 @@ export const Navbar = () => {
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`}
-              className="text-sm font-bold text-secondary hover:text-primary transition-colors cursor-pointer tracking-wide uppercase text-[10px]"
+              className="text-sm font-bold text-white/40 hover:text-primary transition-colors cursor-pointer tracking-wide uppercase text-[10px]"
             >
               {item}
             </a>
           ))}
           <button 
             onClick={() => window.dispatchEvent(new CustomEvent('open-audit'))}
-            className="px-6 py-2.5 bg-primary text-white text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-secondary transition-all cursor-pointer shadow-lg shadow-primary/10 active:scale-95"
+            className="px-6 py-2.5 bg-primary text-background text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-white transition-all cursor-pointer shadow-lg shadow-primary/10 active:scale-95"
           >
             Audit Indítása
           </button>

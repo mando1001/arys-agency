@@ -9,17 +9,17 @@ export const FeatureCard = ({ feature, index }: { feature: any, index: number })
   
   return (
     <div
-      className={`group relative rounded-[2rem] border-2 border-slate-200 bg-white p-8 lg:p-12 overflow-hidden hover:border-accent hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-2 ${feature.mobileAccent ?? ''} ${feature.className} gpu-accel cursor-pointer`}
+      className={`group relative rounded-[2rem] border border-white/10 glass-card p-8 lg:p-12 overflow-hidden hover:border-accent hover:shadow-2xl hover:shadow-accent/5 transition-all duration-500 hover:-translate-y-2 ${feature.mobileAccent ?? ''} ${feature.className} gpu-accel cursor-pointer`}
     >
       {/* Card Gradient Background - subtle on mobile, full on desktop hover */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} ${isMobile ? 'opacity-[0.05]' : 'opacity-0 group-hover:opacity-[0.15]'} transition-opacity duration-700`} />
+      <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} ${isMobile ? 'opacity-[0.05]' : 'opacity-0 group-hover:opacity-[0.1]' } transition-opacity duration-700`} />
       
       <div className="relative z-10 h-full flex flex-col">
         <div className="flex items-start justify-between mb-10">
-          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 text-primary group-hover:scale-110 group-hover:border-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 shadow-sm">
+          <div className="p-5 rounded-2xl bg-white/5 border border-white/10 text-primary group-hover:scale-110 group-hover:border-accent group-hover:bg-accent group-hover:text-background transition-all duration-500 shadow-sm">
             {feature.icon}
           </div>
-          <div className="text-[10px] font-black text-slate-300 uppercase tracking-[0.4em] group-hover:text-accent transition-colors">
+          <div className="text-[10px] font-black text-white/20 uppercase tracking-[0.4em] group-hover:text-accent transition-colors">
             {feature.id}
           </div>
         </div>
@@ -39,7 +39,7 @@ export const FeatureCard = ({ feature, index }: { feature: any, index: number })
 
           <div className="flex flex-wrap gap-4">
             {feature.benefits.map((benefit: string, j: number) => (
-              <span key={j} className="px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 text-[11px] font-bold text-primary flex items-center gap-2 shadow-sm transition-colors group-hover:bg-white group-hover:border-accent/20">
+              <span key={j} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-[11px] font-bold text-primary flex items-center gap-2 shadow-sm transition-colors group-hover:bg-white/10 group-hover:border-accent/20">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block shadow-[0_0_8px_rgba(20,184,166,0.5)]" />
                 {benefit}
               </span>

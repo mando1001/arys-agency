@@ -6,17 +6,17 @@
   --font-heading: "Bodoni Moda", serif;
   --font-body: "Jost", sans-serif;
   
-  --color-primary: #0F172A;
-  --color-secondary: #334155;
+  --color-primary: #F8FAFC;
+  --color-secondary: #94A3B8;
   --color-accent: #14B8A6;
-  --color-background: #F8FAFC;
-  --color-text: #020617;
+  --color-background: #020617;
+  --color-text: #F8FAFC;
 }
 
 :root {
-  --background: #F8FAFC;
-  --foreground: #020617;
-  --primary: #0F172A;
+  --background: #020617;
+  --foreground: #F8FAFC;
+  --primary: #F8FAFC;
   --accent: #14B8A6;
   
   /* Spacing Tokens */
@@ -52,19 +52,19 @@
 }
 
 @layer utilities {
-  /* Glass-morphism Utilities */
+  /* Dark Glass-morphism Utilities */
   .glass-card {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
   }
 
   .glass-card-premium {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(15, 23, 42, 0.12);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
   }
 
   .backdrop-optimize {
@@ -79,12 +79,12 @@
     perspective: 1000px;
   }
 
-  /* Grid Pattern */
+  /* Dark Grid Pattern */
   .bg-grid-slate {
     background-size: 40px 40px;
     background-image: 
-      linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   }
 
   /* Custom UI Elements */
@@ -92,14 +92,14 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    background-image: linear-gradient(135deg, #0F172A 0%, #334155 100%);
+    background-image: linear-gradient(135deg, #F8FAFC 0%, #94A3B8 100%);
   }
 
   .text-accent-gradient {
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    background-image: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+    background-image: linear-gradient(135deg, #14B8A6 0%, #2DD4BF 100%);
   }
 
   .animate-float {
@@ -112,33 +112,33 @@
     100% { transform: translateY(0px); }
   }
 
-  /* Selection State */
+  /* Dark Mode Audit Cards */
   .audit-card-selected {
     border-color: #14B8A6;
-    background-color: #F0FDFA;
-    box-shadow: 0 0 0 2px #14B8A6;
+    background-color: rgba(20, 184, 166, 0.1);
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.2), inset 0 0 0 1px #14B8A6;
   }
 
   .audit-card-unselected {
-    border-color: #E2E8F0;
-    background-color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.02);
   }
 }
 
-/* Custom Scrollbar */
+/* Dark Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: #020617;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #1E293B;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
+  background: #334155;
 }

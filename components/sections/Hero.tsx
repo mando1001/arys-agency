@@ -65,14 +65,14 @@ export const Hero = () => {
         >
           <a 
             href="#audit" 
-            className="px-12 py-6 bg-primary hover:bg-secondary text-white font-black rounded-2xl transition-all shadow-2xl shadow-primary/20 text-sm flex items-center justify-center gap-3 group tracking-widest uppercase"
+            className="px-12 py-6 bg-primary hover:bg-white text-background font-black rounded-2xl transition-all shadow-2xl shadow-primary/10 text-sm flex items-center justify-center gap-3 group tracking-widest uppercase"
           >
             Ingyenes Cégdiagnosztika
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
           <a 
             href="#megoldasok" 
-            className="px-12 py-6 border-2 border-primary text-primary font-bold text-sm rounded-2xl transition-all flex items-center justify-center hover:bg-primary hover:text-white tracking-widest uppercase"
+            className="px-12 py-6 border-2 border-primary/20 text-primary font-bold text-sm rounded-2xl transition-all flex items-center justify-center hover:bg-white/5 tracking-widest uppercase"
           >
             Megoldások
           </a>

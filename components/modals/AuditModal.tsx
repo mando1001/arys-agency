@@ -138,14 +138,14 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
       onClick={onClick}
       className={`relative flex flex-col items-center justify-center p-8 rounded-[2rem] border-2 transition-all duration-500 ${
         isSelected 
-        ? 'border-accent bg-accent/5 shadow-xl shadow-accent/5' 
-        : 'border-slate-100 bg-slate-50 hover:border-slate-200 hover:bg-white'
+        ? 'border-accent bg-accent/10 shadow-xl shadow-accent/10' 
+        : 'border-white/5 bg-white/[0.03] hover:border-white/10 hover:bg-white/[0.05]'
       }`}
     >
-      <div className={`mb-4 p-4 rounded-2xl transition-all ${isSelected ? 'text-white bg-accent shadow-lg shadow-accent/20' : 'text-slate-400 bg-white border border-slate-200'}`}>
+      <div className={`mb-4 p-4 rounded-2xl transition-all ${isSelected ? 'text-background bg-accent shadow-lg shadow-accent/20' : 'text-white/20 bg-white/5 border border-white/10'}`}>
         {icon}
       </div>
-      <span className={`text-sm font-bold text-center tracking-tight font-body ${isSelected ? 'text-primary' : 'text-secondary'}`}>
+      <span className={`text-sm font-bold text-center tracking-tight font-body ${isSelected ? 'text-primary' : 'text-white/40'}`}>
         {title}
       </span>
       {isSelected && (
@@ -165,19 +165,19 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-white/80 backdrop-blur-2xl"
+        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/90 backdrop-blur-3xl"
       >
-        <button onClick={onClose} className="absolute top-8 right-8 text-secondary hover:text-primary transition-colors z-[110]">
+        <button onClick={onClose} className="absolute top-8 right-8 text-white/20 hover:text-white transition-colors z-[110]">
           <X className="w-8 h-8" />
         </button>
 
         <m.div
           initial={{ y: 40, opacity: 0, scale: 0.95 }}
           animate={{ y: 0, opacity: 1, scale: 1 }}
-          className="w-full max-w-4xl bg-white border-2 border-slate-200 rounded-[3rem] shadow-2xl shadow-primary/5 relative max-h-[90vh] flex flex-col"
+          className="w-full max-w-4xl glass-card-premium border border-white/10 rounded-[3rem] shadow-2xl shadow-black/80 relative max-h-[90vh] flex flex-col"
         >
           {/* Progress Bar */}
-          <div className="absolute top-0 left-0 w-full h-2 bg-slate-50 z-20 overflow-hidden rounded-t-[3rem]">
+          <div className="absolute top-0 left-0 w-full h-2 bg-white/5 z-20 overflow-hidden rounded-t-[3rem]">
             <m.div
               className="h-full bg-accent shadow-[0_0_15px_rgba(20,184,166,0.5)]"
               initial={{ width: 0 }}
@@ -199,7 +199,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                     <m.div 
                       animate={{ rotate: 360 }}
                       transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-                      className="absolute inset-0 rounded-full border-4 border-slate-100 border-t-accent shadow-xl shadow-accent/10"
+                      className="absolute inset-0 rounded-full border-4 border-white/5 border-t-accent shadow-xl shadow-accent/10"
                     />
                     <div className="absolute inset-4 rounded-full bg-accent/5 flex items-center justify-center">
                       <Activity className="w-12 h-12 text-accent animate-pulse" />
@@ -255,7 +255,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                           whileTap={{ scale: 0.95 }}
                           onClick={nextStep}
                           disabled={formData.mainObstacles.length === 0}
-                          className="px-10 py-5 bg-primary text-white disabled:opacity-30 font-black rounded-2xl transition-all flex items-center gap-3 group uppercase tracking-widest text-xs shadow-xl shadow-primary/20"
+                          className="px-10 py-5 bg-primary text-background disabled:opacity-30 font-black rounded-2xl transition-all flex items-center gap-3 group uppercase tracking-widest text-xs shadow-xl shadow-primary/10"
                         >
                           Tovább <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </m.button>
@@ -542,44 +542,44 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       <div className="space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                           <div className="space-y-3">
-                            <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-2">Név</label>
+                            <label className="text-[10px] font-black text-white/20 uppercase tracking-widest pl-2">Név</label>
                             <input
                               type="text"
                               value={formData.name}
                               onChange={(e) => setFormData({...formData, name: e.target.value})}
                               placeholder="Teljes neved"
-                              className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-8 py-5 text-primary placeholder:text-slate-300 focus:outline-none focus:border-accent transition-all font-body"
+                              className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-primary placeholder:text-white/10 focus:outline-none focus:border-accent transition-all font-body"
                             />
                           </div>
                           <div className="space-y-3">
-                            <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-2">Cégnév</label>
+                            <label className="text-[10px] font-black text-white/20 uppercase tracking-widest pl-2">Cégnév</label>
                             <input
                               type="text"
                               value={formData.companyName}
                               onChange={(e) => setFormData({...formData, companyName: e.target.value})}
                               placeholder="Vállalkozásod neve"
-                              className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-8 py-5 text-primary placeholder:text-slate-300 focus:outline-none focus:border-accent transition-all font-body"
+                              className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-primary placeholder:text-white/10 focus:outline-none focus:border-accent transition-all font-body"
                             />
                           </div>
                         </div>
                         <div className="space-y-3">
-                          <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-2">Email</label>
+                          <label className="text-[10px] font-black text-white/20 uppercase tracking-widest pl-2">Email</label>
                           <input
                             type="email"
                             value={formData.email}
                             onChange={(e) => setFormData({...formData, email: e.target.value})}
                             placeholder="Munkahelyi e-mail"
-                            className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-8 py-5 text-primary placeholder:text-slate-300 focus:outline-none focus:border-accent transition-all font-body"
+                            className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-primary placeholder:text-white/10 focus:outline-none focus:border-accent transition-all font-body"
                           />
                         </div>
                         <div className="space-y-3">
-                          <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-2">Megjegyzés (Opcionális)</label>
+                          <label className="text-[10px] font-black text-white/20 uppercase tracking-widest pl-2">Megjegyzés (Opcionális)</label>
                           <textarea
                             value={formData.comment}
                             onChange={(e) => setFormData({...formData, comment: e.target.value})}
                             placeholder="Van-e bármi, amit még kiemelne?"
                             rows={3}
-                            className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-8 py-5 text-primary placeholder:text-slate-300 focus:outline-none focus:border-accent transition-all resize-none font-body"
+                            className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-primary placeholder:text-white/10 focus:outline-none focus:border-accent transition-all resize-none font-body"
                           />
                         </div>
                         <m.button
@@ -587,7 +587,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                           whileTap={{ scale: 0.98 }}
                           onClick={submitForm}
                           disabled={!formData.name || !formData.email || !formData.companyName}
-                          className="w-full py-6 bg-primary text-white disabled:bg-slate-200 disabled:text-slate-400 font-black rounded-2xl transition-all shadow-2xl shadow-primary/20 flex items-center justify-center gap-4 uppercase tracking-widest text-xs"
+                          className="w-full py-6 bg-primary text-background disabled:bg-white/10 disabled:text-white/20 font-black rounded-2xl transition-all shadow-2xl shadow-primary/10 flex items-center justify-center gap-4 uppercase tracking-widest text-xs"
                         >
                           Elemzés Indítása <ArrowRight size={18} />
                         </m.button>
