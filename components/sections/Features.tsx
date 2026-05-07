@@ -68,12 +68,8 @@ export const Features = () => {
   return (
     <section id="megoldasok" className="py-32 relative overflow-hidden border-t border-white/5 bg-[#0A0B0D]">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <m.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
-          className="mb-20 max-w-2xl gpu-accel will-change-transform"
+        <div 
+          className="mb-20 max-w-2xl gpu-accel"
         >
           <div className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em] mb-4">
             Megoldásaink
@@ -85,19 +81,15 @@ export const Features = () => {
           <p className="text-gray-400 text-lg leading-relaxed">
             A központosított rendszerek és okos munkafolyamatok kombinációjával cégéből eltüntetjük a súrlódásokat. Az eredmény: kiszámítható profit és tiszta fej.
           </p>
-        </m.div>
+        </div>
 
-        <m.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-6 gpu-accel will-change-transform"
+        <div 
+          className="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-6 gpu-accel"
         >
           {features.map((feature, i) => (
             <FeatureCard key={feature.id} feature={feature} index={i} />
           ))}
-        </m.div>
+        </div>
       </div>
     </section>
   );

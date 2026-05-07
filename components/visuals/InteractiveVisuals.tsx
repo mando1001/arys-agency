@@ -8,10 +8,9 @@ export const FlowVisual = () => {
   return (
     <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden group hidden md:block">
       <div className="relative w-full h-full flex items-center justify-center">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(45,212,191,0.05),transparent_70%)] group-hover:bg-[radial-gradient(circle_at_50%_50%,rgba(45,212,191,0.1),transparent_70%)] transition-colors duration-1000" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(45,212,191,0.05),transparent_70%)]" />
         
         <svg className="w-full h-full max-w-[500px] max-h-[400px] gpu-accel" viewBox="0 0 500 400">
-
           <g transform="translate(250, 200)">
             <rect
               width="80"
@@ -20,68 +19,39 @@ export const FlowVisual = () => {
               y="-40"
               rx="24"
               className="fill-teal-500/10 stroke-teal-500/30"
-              style={{ transformBox: 'fill-box', transformOrigin: 'center', animation: 'spin 10s linear infinite' }}
-            />
-            <m.circle
-              r="30"
-              cx="0"
-              cy="0"
-              className="fill-teal-500/5 stroke-teal-500/20"
-              initial={{ r: 30, opacity: 0.3 }}
-              animate={{ r: [30, 45], opacity: [0.3, 0] }}
-              transition={{ repeat: Infinity, duration: 2 }}
             />
           </g>
           <foreignObject x="230" y="180" width="40" height="40">
             <div className="w-full h-full flex items-center justify-center">
-              <Settings className="text-teal-400 w-8 h-8 animate-spin-slow" />
+              <Settings className="text-teal-400 w-8 h-8" />
             </div>
           </foreignObject>
           {[
-            { icon: <Mail className="w-5 h-5" />, x: 100, y: 100, delay: 0 },
-            { icon: <Database className="w-5 h-5" />, x: 100, y: 300, delay: 0.5 },
-            { icon: <Users className="w-5 h-5" />, x: 400, y: 100, delay: 1 },
-            { icon: <CheckCircle2 className="w-5 h-5" />, x: 400, y: 300, delay: 1.5 }
+            { icon: <Mail className="w-5 h-5" />, x: 100, y: 100 },
+            { icon: <Database className="w-5 h-5" />, x: 100, y: 300 },
+            { icon: <Users className="w-5 h-5" />, x: 400, y: 100 },
+            { icon: <CheckCircle2 className="w-5 h-5" />, x: 400, y: 300 }
           ].map((node, i) => (
             <g key={i}>
-              <m.path
+              <path
                 d={`M ${node.x} ${node.y} L 250 200`}
                 stroke="currentColor"
                 strokeWidth="1.5"
                 fill="none"
                 className="text-white/10 group-hover:text-teal-500/30 transition-colors duration-700"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 1.5, delay: node.delay }}
               />
-              <m.circle
+              <circle
                 r="4"
                 cx={node.x}
                 cy={node.y}
                 className="fill-teal-400 shadow-teal-500/50"
-
-                initial={{ opacity: 0 }}
-                animate={{
-                  cx: [node.x, 250],
-                  cy: [node.y, 200],
-                  opacity: [0, 1, 0]
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 3,
-                  delay: node.delay + 0.5,
-                  ease: "easeInOut"
-                }}
               />
               <foreignObject x={node.x - 24} y={node.y - 24} width="48" height="48">
-                <m.div 
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: node.delay, type: "spring" }}
+                <div 
                   className="w-full h-full rounded-2xl bg-black/40 border border-white/10 flex items-center justify-center text-gray-500 group-hover:text-teal-400 group-hover:border-teal-500/30 transition-all duration-500 backdrop-blur-sm shadow-xl"
                 >
                   {node.icon}
-                </m.div>
+                </div>
               </foreignObject>
             </g>
           ))}
@@ -96,44 +66,18 @@ export const BrainVisual = () => {
     <div className="absolute inset-0 pointer-events-none z-0 group hidden md:block overflow-visible">
       <div className="relative w-full h-full flex items-center overflow-visible">
         <svg className="w-full h-full gpu-accel" viewBox="0 0 1200 300" preserveAspectRatio="xMaxYMid meet">
-
           <g className="stroke-orange-500/10 group-hover:stroke-orange-500/20 transition-colors duration-700">
             {[
               { x1: 500, y1: 150, x2: 1100, y2: 80 },
               { x1: 500, y1: 150, x2: 1100, y2: 150 },
               { x1: 500, y1: 150, x2: 1100, y2: 220 },
             ].map((link, i) => (
-              <m.line
+              <line
                 key={i}
                 x1={link.x1} y1={link.y1} x2={link.x2} y2={link.y2}
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 1.5, delay: i * 0.1 }}
               />
             ))}
           </g>
-          {[0, 1, 2].map((i) => (
-            <m.circle
-              key={i}
-              r="2"
-              cx="500"
-              cy="150"
-              className="fill-orange-400 shadow-orange-500/50"
-
-              initial={{ opacity: 0 }}
-              animate={{
-                cx: [500, 1100],
-                cy: [150, [80, 150, 220][i]],
-                opacity: [0, 1, 0]
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 2,
-                delay: i * 0.6,
-                ease: "easeInOut"
-              }}
-            />
-          ))}
           {[
             { x: 1100, y: 80 },
             { x: 1100, y: 150 },
@@ -146,11 +90,9 @@ export const BrainVisual = () => {
             </foreignObject>
           ))}
           <g transform="translate(500, 150)">
-            <m.circle
+            <circle
               r="35"
               className="fill-orange-500/5 stroke-orange-500/20"
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ repeat: Infinity, duration: 4 }}
             />
           </g>
           <foreignObject x="470" y="120" width="60" height="60">

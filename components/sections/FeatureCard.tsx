@@ -7,20 +7,9 @@ import { useIsMobile } from '../../hooks/useIsMobile';
 export const FeatureCard = ({ feature, index }: { feature: any, index: number }) => {
   const isMobile = useIsMobile();
   
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      scale: 1,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }
-    },
-  };
-
   return (
-    <m.div
-      variants={itemVariants}
-      className={`group relative rounded-[32px] border border-white/5 bg-[#0D0F14]/30 ${!isMobile ? 'backdrop-blur-xl backdrop-optimize' : ''} p-8 lg:p-12 overflow-hidden hover:border-white/10 transition-all duration-500 md:border-l md:border-l-white/5 border-l-2 ${feature.mobileAccent ?? ''} ${feature.className} gpu-accel will-change-transform`}
+    <div
+      className={`group relative rounded-[32px] border border-white/5 bg-[#0D0F14]/30 ${!isMobile ? 'backdrop-blur-xl backdrop-optimize' : ''} p-8 lg:p-12 overflow-hidden hover:border-white/10 transition-all duration-500 md:border-l md:border-l-white/5 border-l-2 ${feature.mobileAccent ?? ''} ${feature.className} gpu-accel`}
     >
       {/* Card Gradient Background - subtle on mobile, full on desktop hover */}
       <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} ${isMobile ? 'opacity-[0.08]' : 'opacity-0 group-hover:opacity-100'} transition-opacity duration-700`} />
@@ -58,6 +47,6 @@ export const FeatureCard = ({ feature, index }: { feature: any, index: number })
           </div>
         </div>
       </div>
-    </m.div>
+    </div>
   );
 };

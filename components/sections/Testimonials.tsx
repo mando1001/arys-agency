@@ -47,27 +47,18 @@ export const Testimonials = () => {
     <div 
       className="mt-32 w-full border-t border-white/5 pt-20"
     >
-      <m.p 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
+      <p 
         className="text-[10px] uppercase tracking-[0.4em] text-teal-400 mb-12 font-black text-center"
       >
         Akik már hatékonyabban dolgoznak velünk
-      </m.p>
+      </p>
       
-      <m.div 
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
-        className="grid grid-cols-1 md:grid-cols-3 gap-6 gpu-accel will-change-transform"
+      <div 
+        className="grid grid-cols-1 md:grid-cols-3 gap-6 gpu-accel"
       >
         {reviews.map((review, i) => (
-          <m.div
+          <div
             key={i}
-            variants={itemVariants}
-            whileHover={{ y: -5, scale: 1.02 }}
             className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl text-left hover:border-teal-500/30 transition-all duration-500"
           >
             <div className="flex gap-1 mb-4">
@@ -78,9 +69,9 @@ export const Testimonials = () => {
               <div className="text-white font-bold text-sm">{review.name}</div>
               <div className="text-gray-500 text-[10px] uppercase tracking-wider">{review.role}</div>
             </div>
-          </m.div>
+          </div>
         ))}
-      </m.div>
+      </div>
     </div>
   );
 };
