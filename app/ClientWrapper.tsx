@@ -12,6 +12,10 @@ const AuditMagnet = dynamic(() => import('../components/sections/AuditMagnet').t
   ssr: true
 });
 
+const FAQ = dynamic(() => import('../components/sections/FAQ').then(mod => mod.FAQ), {
+  ssr: true
+});
+
 const ModalController = dynamic(() => import('./ModalController').then(mod => mod.ModalController), {
   ssr: false
 });
@@ -21,6 +25,9 @@ export function ClientWrapper() {
     <>
       <Suspense fallback={<div className="h-96 w-full bg-[#0A0B0D]" />}>
         <Features />
+      </Suspense>
+      <Suspense fallback={null}>
+        <FAQ />
       </Suspense>
       <Suspense fallback={null}>
         <AuditMagnet />
