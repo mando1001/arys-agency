@@ -10,8 +10,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
       duration: 1.2, 
       smoothWheel: true,
       wheelMultiplier: 1,
-      touchMultiplier: 2,
-      normalizeWheel: true
+      touchMultiplier: 2
     }}>
       {children}
     </ReactLenis>
