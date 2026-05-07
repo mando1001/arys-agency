@@ -45,29 +45,29 @@ export const Testimonials = () => {
 
   return (
     <div 
-      className="mt-32 w-full border-t border-white/5 pt-20"
+      className="mt-32 w-full border-t border-slate-200 pt-20"
     >
       <p 
-        className="text-[10px] uppercase tracking-[0.4em] text-teal-400 mb-12 font-black text-center"
+        className="text-[10px] uppercase tracking-[0.4em] text-teal-600 mb-12 font-black text-center"
       >
         Akik már hatékonyabban dolgoznak velünk
       </p>
       
       <div 
-        className="grid grid-cols-1 md:grid-cols-3 gap-6 gpu-accel"
+        className="grid grid-cols-1 md:grid-cols-3 gap-8 gpu-accel"
       >
         {reviews.map((review, i) => (
           <div
             key={i}
-            className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl text-left hover:border-teal-500/30 transition-all duration-500"
+            className="bg-white border border-slate-200 p-8 rounded-3xl text-left hover:border-teal-400 hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-500 shadow-sm"
           >
-            <div className="flex gap-1 mb-4">
-              {[1,2,3,4,5].map(s => <Sparkles key={s} size={12} className="text-teal-400" />)}
+            <div className="flex gap-1.5 mb-6">
+              {[1,2,3,4,5].map(s => <Sparkles key={s} size={14} className="text-teal-500 fill-teal-500/10" />)}
             </div>
-            <p className="text-gray-300 text-sm leading-relaxed mb-6 italic">"{review.content}"</p>
+            <p className="text-slate-600 text-sm leading-relaxed mb-6 italic">"{review.content}"</p>
             <div>
-              <div className="text-white font-bold text-sm">{review.name}</div>
-              <div className="text-gray-500 text-[10px] uppercase tracking-wider">{review.role}</div>
+              <div className="text-slate-900 font-bold text-sm">{review.name}</div>
+              <div className="text-slate-400 text-[10px] uppercase tracking-wider mt-1">{review.role}</div>
             </div>
           </div>
         ))}

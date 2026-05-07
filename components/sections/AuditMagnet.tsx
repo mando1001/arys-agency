@@ -13,7 +13,7 @@ export const AuditMagnet = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="relative p-12 md:p-24 rounded-[48px] bg-white/60 border border-teal-500/10 overflow-hidden text-center backdrop-blur-xl">
+        <div className="relative p-12 md:p-24 rounded-[48px] bg-white border-2 border-teal-500/10 overflow-hidden text-center shadow-2xl">
           {/* Glow behind content */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 bg-teal-500/10 blur-[120px] pointer-events-none" />
           
