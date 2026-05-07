@@ -1,5 +1,5 @@
 import React from 'react';
-import { m } from 'motion/react';
+import { m, Variants } from 'motion/react';
 import { Workflow, Activity, Fingerprint, LayoutTemplate } from 'lucide-react';
 import { FlowVisual, BrainVisual } from '../visuals/InteractiveVisuals';
 import { FeatureCard } from './FeatureCard';
@@ -54,7 +54,7 @@ export const Features = () => {
     }
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,

@@ -2,12 +2,12 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { m } from 'motion/react';
+import { m, Variants } from 'motion/react';
 import { HeroVisual } from '../visuals/HeroVisual';
 import { Testimonials } from './Testimonials';
 
 export const Hero = () => {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -18,12 +18,12 @@ export const Hero = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+      transition: { duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] as const }
     },
   };
 

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { m } from 'motion/react';
+import { m, Variants } from 'motion/react';
 import { Sparkles } from 'lucide-react';
 
 export const Testimonials = () => {
@@ -23,7 +23,7 @@ export const Testimonials = () => {
     }
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -33,12 +33,12 @@ export const Testimonials = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+      transition: { duration: 0.6, ease: [0.6, 0.05, -0.01, 0.9] as const }
     },
   };
 
