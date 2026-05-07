@@ -29,6 +29,7 @@ export const Testimonials = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
+        ease: [0.22, 1, 0.36, 1] as const
       },
     },
   };
@@ -38,7 +39,7 @@ export const Testimonials = () => {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.6, ease: [0.6, 0.05, -0.01, 0.9] as const }
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }
     },
   };
 
@@ -60,7 +61,7 @@ export const Testimonials = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
-        className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        className="grid grid-cols-1 md:grid-cols-3 gap-6 gpu-accel will-change-transform"
       >
         {reviews.map((review, i) => (
           <m.div

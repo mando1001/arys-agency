@@ -59,7 +59,8 @@ export const Features = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.1,
+        ease: [0.22, 1, 0.36, 1] as const
       },
     },
   };
@@ -71,8 +72,8 @@ export const Features = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-20 max-w-2xl"
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
+          className="mb-20 max-w-2xl gpu-accel will-change-transform"
         >
           <div className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em] mb-4">
             Megoldásaink
@@ -91,7 +92,7 @@ export const Features = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-6"
+          className="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-6 gpu-accel will-change-transform"
         >
           {features.map((feature, i) => (
             <FeatureCard key={feature.id} feature={feature} index={i} />

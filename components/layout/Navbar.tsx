@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import { m } from 'motion/react';
 
-export const Logo = () => (
+export const Logo = React.memo(() => (
   <m.div 
     whileHover={{ scale: 1.05 }}
-    className="flex items-center gap-2 group cursor-pointer"
+    className="flex items-center gap-2 group cursor-pointer gpu-accel"
   >
     <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center transition-transform group-hover:rotate-[360deg] duration-700">
       <div className="w-4 h-4 bg-black rounded-sm rotate-45" />
@@ -15,22 +15,31 @@ export const Logo = () => (
       ARYS<span className="text-teal-400">.</span>
     </div>
   </m.div>
-);
+));
+
+Logo.displayName = 'Logo';
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      // Throttle scroll check for performance
+      if (window.scrollY > 20) {
+        if (!isScrolled) setIsScrolled(true);
+      } else {
+        if (isScrolled) setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isScrolled]);
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-[90] transition-all duration-700 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 z-[90] transition-all duration-500 ease-[0.22,1,0.36,1] ${
         isScrolled 
-          ? 'bg-[#0A0B0D]/40 backdrop-blur-xl py-4 border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]' 
+          ? 'bg-[#0A0B0D]/40 backdrop-blur-md backdrop-optimize py-4 border-b border-white/10' 
           : 'bg-transparent py-8 border-b border-transparent'
       }`}
     >

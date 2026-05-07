@@ -13,7 +13,8 @@ export const Hero = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.3,
+        delayChildren: 0.2,
+        ease: [0.22, 1, 0.36, 1] as const
       },
     },
   };
@@ -23,7 +24,7 @@ export const Hero = () => {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] as const }
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }
     },
   };
 
@@ -41,7 +42,7 @@ export const Hero = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="relative max-w-7xl mx-auto px-6 z-10 text-center flex flex-col items-center"
+        className="relative max-w-7xl mx-auto px-6 z-10 text-center flex flex-col items-center gpu-accel will-change-transform"
       >
         <m.div 
           variants={itemVariants}

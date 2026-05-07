@@ -13,7 +13,7 @@ export const HeroVisual = () => {
       {/* Decorative glow behind the whole visual - significantly reduced blur for mobile */}
       <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-teal-500/10 ${isMobile ? 'blur-[40px]' : 'blur-[120px]'} rounded-full group-hover:bg-teal-500/20 transition-all duration-700`} />
 
-      <div className={`relative rounded-[40px] border border-white/10 bg-white/5 ${!isMobile ? 'backdrop-blur-3xl' : ''} p-8 lg:p-16 overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)]`}>
+      <div className={`relative rounded-[40px] border border-white/10 bg-white/5 ${!isMobile ? 'backdrop-blur-md backdrop-optimize' : ''} p-8 lg:p-16 overflow-hidden gpu-accel will-change-transform`}>
         {/* Animated gradient sweep - desktop only to save mobile CPU */}
         {!isMobile && (
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1500 ease-in-out" />
@@ -49,7 +49,7 @@ export const HeroVisual = () => {
 
             <m.div
               whileHover={{ scale: 1.1, rotate: 5 }}
-              className="w-40 h-40 rounded-[2.5rem] border border-teal-500/40 bg-teal-500/10 backdrop-blur-2xl flex flex-col items-center justify-center relative z-10 shadow-[0_0_80px_-10px_rgba(45,212,191,0.6)] cursor-pointer overflow-hidden"
+              className="w-40 h-40 rounded-[2.5rem] border border-teal-500/40 bg-teal-500/10 backdrop-blur-md backdrop-optimize flex flex-col items-center justify-center relative z-10 cursor-pointer overflow-hidden gpu-accel"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-teal-400/20 to-transparent" />
               <span className="text-4xl font-black text-white tracking-tighter mb-1 relative z-10">ARYS</span>
@@ -81,7 +81,7 @@ export const HeroVisual = () => {
               <m.div
                 key={idx}
                 whileHover={{ scale: 1.05, x: 10 }}
-                className="flex items-center gap-5 p-5 rounded-3xl bg-teal-500/5 border border-teal-500/20 text-white font-medium transition-all group-hover:shadow-[0_0_40px_-10px_rgba(45,212,191,0.3)] backdrop-blur-md"
+                className="flex items-center gap-5 p-5 rounded-3xl bg-teal-500/5 border border-teal-500/20 text-white font-medium transition-all backdrop-blur-md backdrop-optimize gpu-accel"
               >
                 <div className="p-4 rounded-2xl bg-teal-500/20 text-teal-400">{item.icon}</div>
                 <div className="flex flex-col items-start">

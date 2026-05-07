@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Space_Grotesk, Inter } from 'next/font/google';
 import './globals.css';
+import { SmoothScrollProvider } from '../components/providers/SmoothScrollProvider';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -47,7 +48,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="hu" className={`${spaceGrotesk.variable} ${inter.variable} dark`}>
       <body className="bg-[#0A0B0D] bg-mesh text-white font-sans antialiased overflow-x-hidden selection:bg-teal-500/30 selection:text-teal-200 flex flex-col min-h-screen" suppressHydrationWarning>
-        {children}
+        <SmoothScrollProvider>
+          {children}
+        </SmoothScrollProvider>
       </body>
     </html>
   );
