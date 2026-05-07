@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <MotionProvider>
       <Navbar />
-      <main className="bg-[#0A0B0D] text-white selection:bg-teal-500/30">
+      <main className="bg-[#F2F9F7] text-[#042F2E] selection:bg-teal-500/20">
         <Hero />
         <ClientWrapper />
       </main>

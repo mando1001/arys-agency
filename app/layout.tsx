@@ -46,8 +46,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="hu" className={`${spaceGrotesk.variable} ${inter.variable} dark`}>
-      <body className="bg-[#0A0B0D] bg-mesh text-white font-sans antialiased overflow-x-hidden selection:bg-teal-500/30 selection:text-teal-200 flex flex-col min-h-screen" suppressHydrationWarning>
+    <html lang="hu" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+      <body className="bg-[#F2F9F7] bg-mesh text-[#042F2E] font-sans antialiased overflow-x-hidden selection:bg-teal-500/20 selection:text-teal-700 flex flex-col min-h-screen" suppressHydrationWarning>
         <SmoothScrollProvider>
           {children}
         </SmoothScrollProvider>

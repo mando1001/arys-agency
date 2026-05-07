@@ -66,19 +66,19 @@ export const Features = () => {
   };
 
   return (
-    <section id="megoldasok" className="py-32 relative overflow-hidden border-t border-white/5 bg-[#0A0B0D]">
+    <section id="megoldasok" className="py-32 relative overflow-hidden border-t border-teal-500/10 bg-[#F2F9F7]">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div 
           className="mb-20 max-w-2xl gpu-accel"
         >
-          <div className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em] mb-4">
+          <div className="text-teal-600 text-[10px] font-black uppercase tracking-[0.3em] mb-4">
             Megoldásaink
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-8">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-[#042F2E] mb-8">
             Változtasd a káoszt <br />
-            <span className="inline-block bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent italic px-4 py-2 [-webkit-box-decoration-break:clone] [box-decoration-break:clone]">átlátható növekedéssé.</span>
+            <span className="inline-block bg-gradient-to-r from-teal-500 to-blue-600 bg-clip-text text-transparent italic px-4 py-2 [-webkit-box-decoration-break:clone] [box-decoration-break:clone]">átlátható növekedéssé.</span>
           </h2>
-          <p className="text-gray-400 text-lg leading-relaxed">
+          <p className="text-emerald-900/60 text-lg leading-relaxed">
             A központosított rendszerek és okos munkafolyamatok kombinációjával cégéből eltüntetjük a súrlódásokat. Az eredmény: kiszámítható profit és tiszta fej.
           </p>
         </div>

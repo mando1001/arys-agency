@@ -138,14 +138,14 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
       onClick={onClick}
       className={`relative flex flex-col items-center justify-center p-8 rounded-[2rem] border transition-all duration-500 ${
         isSelected 
-        ? 'border-teal-500 bg-teal-500/10 shadow-[0_0_40px_-10px_rgba(45,212,191,0.4)]' 
-        : 'border-white/5 bg-white/5 hover:border-white/20 hover:bg-white/10'
+        ? 'border-teal-500 bg-teal-500/10 shadow-[0_0_40px_-10px_rgba(45,212,191,0.2)]' 
+        : 'border-teal-500/5 bg-teal-500/5 hover:border-teal-500/20 hover:bg-teal-500/10'
       }`}
     >
-      <div className={`mb-4 p-4 rounded-2xl transition-colors ${isSelected ? 'text-teal-400 bg-teal-400/10' : 'text-gray-500 bg-white/5'}`}>
+      <div className={`mb-4 p-4 rounded-2xl transition-colors ${isSelected ? 'text-teal-600 bg-teal-500/10' : 'text-emerald-900/40 bg-teal-500/5'}`}>
         {icon}
       </div>
-      <span className={`text-sm font-bold text-center tracking-tight ${isSelected ? 'text-white' : 'text-gray-400'}`}>
+      <span className={`text-sm font-bold text-center tracking-tight ${isSelected ? 'text-[#042F2E]' : 'text-emerald-900/60'}`}>
         {title}
       </span>
       {isSelected && (
@@ -165,16 +165,16 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#0A0B0D]/90 backdrop-blur-2xl"
+        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#F2F9F7]/90 backdrop-blur-2xl"
       >
-        <button onClick={onClose} className="absolute top-8 right-8 text-gray-500 hover:text-white transition-colors z-[110]">
+        <button onClick={onClose} className="absolute top-8 right-8 text-emerald-900/40 hover:text-[#042F2E] transition-colors z-[110]">
           <X className="w-8 h-8" />
         </button>
 
         <m.div
           initial={{ y: 40, opacity: 0, scale: 0.95 }}
           animate={{ y: 0, opacity: 1, scale: 1 }}
-          className="w-full max-w-4xl bg-[#0D0F14] border border-white/10 rounded-[3rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,1)] relative max-h-[90vh] flex flex-col"
+          className="w-full max-w-4xl bg-white border border-teal-500/10 rounded-[3rem] shadow-[0_40px_100px_-20px_rgba(13,148,136,0.1)] relative max-h-[90vh] flex flex-col"
         >
           {/* Progress Bar */}
           <div className="absolute top-0 left-0 w-full h-1.5 bg-white/5 z-20">
@@ -206,7 +206,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                     </div>
                   </div>
                   <div className="text-center h-20">
-                    <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">{scanMessage}</h3>
+                    <h3 className="text-2xl font-bold text-[#042F2E] mb-2 tracking-tight">{scanMessage}</h3>
                     <p className="text-gray-500 text-sm">ARYS Engine elemzi a megadott adatokat</p>
                   </div>
                 </m.div>
@@ -222,8 +222,8 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                     >
                       <div className="space-y-2">
                         <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">01 / 10</span>
-                        <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tighter">Mi okozza a legtöbb napi fejfájást vagy elakadást?</h3>
-                        <p className="text-gray-500 text-sm italic">Többet is választhatsz</p>
+                        <h3 className="text-3xl md:text-5xl font-bold text-[#042F2E] tracking-tighter">Mi okozza a legtöbb napi fejfájást vagy elakadást?</h3>
+                        <p className="text-emerald-900/40 text-sm italic">Többet is választhatsz</p>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {[
@@ -255,7 +255,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                           whileTap={{ scale: 0.95 }}
                           onClick={nextStep}
                           disabled={formData.mainObstacles.length === 0}
-                          className="px-8 py-4 bg-white/10 hover:bg-teal-500 hover:text-black disabled:opacity-30 disabled:hover:bg-white/10 disabled:hover:text-white text-white font-bold rounded-2xl transition-all flex items-center gap-2 group"
+                          className="px-8 py-4 bg-teal-500/10 hover:bg-teal-500 hover:text-[#042F2E] disabled:opacity-30 disabled:hover:bg-teal-500/10 disabled:hover:text-[#042F2E] text-[#042F2E] font-bold rounded-2xl transition-all flex items-center gap-2 group"
                         >
                           Tovább <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </m.button>
@@ -273,8 +273,8 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                     >
                       <div className="space-y-2">
                         <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">02 / 10</span>
-                        <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tighter">Mennyi munkaórát égetnek el a repetitív folyamatok?</h3>
-                        <p className="text-gray-500 text-sm italic">Számolj a manuális adatmásolással, a hibák javításával és az adminisztrációval – céges szinten.</p>
+                        <h3 className="text-3xl md:text-5xl font-bold text-[#042F2E] tracking-tighter">Mennyi munkaórát égetnek el a repetitív folyamatok?</h3>
+                        <p className="text-emerald-900/40 text-sm italic">Számolj a manuális adatmásolással, a hibák javításával és az adminisztrációval – céges szinten.</p>
                       </div>
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {[
@@ -305,7 +305,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                     >
                       <div className="space-y-2">
                         <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">03 / 10</span>
-                        <h3 className="text-2xl md:text-4xl font-bold text-white tracking-tighter leading-tight">Okozott-e már konkrét kárt az emberi mulasztás?</h3>
+                        <h3 className="text-2xl md:text-4xl font-bold text-[#042F2E] tracking-tighter leading-tight">Okozott-e már konkrét kárt az emberi mulasztás?</h3>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {[
@@ -336,7 +336,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                     >
                       <div className="space-y-2">
                         <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">04 / 10</span>
-                        <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tighter">Bírná a rendszered, ha holnaptól 2x annyi ügyfeled lenne?</h3>
+                        <h3 className="text-3xl md:text-5xl font-bold text-[#042F2E] tracking-tighter">Bírná a rendszered, ha holnaptól 2x annyi ügyfeled lenne?</h3>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {[
@@ -366,8 +366,8 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                     >
                       <div className="space-y-2">
                         <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">05 / 10</span>
-                        <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tighter">Milyen eszközöket használtok jelenleg?</h3>
-                        <p className="text-gray-500 text-sm italic">Többet is választhatsz</p>
+                        <h3 className="text-3xl md:text-5xl font-bold text-[#042F2E] tracking-tighter">Milyen eszközöket használtok jelenleg?</h3>
+                        <p className="text-emerald-900/40 text-sm italic">Többet is választhatsz</p>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {[
@@ -417,7 +417,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                     >
                       <div className="space-y-2">
                         <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">06 / 10</span>
-                        <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tighter">Mennyire "beszélgetnek" egymással a szoftvereid?</h3>
+                        <h3 className="text-3xl md:text-5xl font-bold text-[#042F2E] tracking-tighter">Mennyire "beszélgetnek" egymással a szoftvereid?</h3>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {[
@@ -447,7 +447,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                     >
                       <div className="space-y-2">
                         <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">07 / 10</span>
-                        <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tighter">Hány kolléga munkáját lassítják a manuális folyamatok?</h3>
+                        <h3 className="text-3xl md:text-5xl font-bold text-[#042F2E] tracking-tighter">Hány kolléga munkáját lassítják a manuális folyamatok?</h3>
                       </div>
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {[
@@ -478,7 +478,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                     >
                       <div className="space-y-2">
                         <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">08 / 10</span>
-                        <h3 className="text-2xl md:text-4xl font-bold text-white tracking-tighter leading-tight">Mi lenne a legfontosabb eredmény számodra?</h3>
+                        <h3 className="text-2xl md:text-4xl font-bold text-[#042F2E] tracking-tighter leading-tight">Mi lenne a legfontosabb eredmény számodra?</h3>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {[
@@ -509,7 +509,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                     >
                       <div className="space-y-2">
                         <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">09 / 10</span>
-                        <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tighter">Mikorra szeretnéd látni az első eredményeket?</h3>
+                        <h3 className="text-3xl md:text-5xl font-bold text-[#042F2E] tracking-tighter">Mikorra szeretnéd látni az első eredményeket?</h3>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {[
@@ -539,7 +539,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                     >
                       <div className="space-y-4">
                         <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">10 / 10</span>
-                        <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tighter leading-none">Kihez küldhetjük a diagnózist?</h3>
+                        <h3 className="text-4xl md:text-6xl font-bold text-[#042F2E] tracking-tighter leading-none">Kihez küldhetjük a diagnózist?</h3>
                       </div>
                       <div className="space-y-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -550,7 +550,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                               value={formData.name}
                               onChange={(e) => setFormData({...formData, name: e.target.value})}
                               placeholder="Teljes neved"
-                              className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-teal-500/50 transition-colors"
+                              className="w-full bg-teal-500/5 border border-teal-500/10 rounded-2xl px-6 py-4 text-[#042F2E] placeholder:text-emerald-900/30 focus:outline-none focus:border-teal-500/50 transition-colors"
                             />
                           </div>
                           <div className="space-y-2">
@@ -560,7 +560,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                               value={formData.companyName}
                               onChange={(e) => setFormData({...formData, companyName: e.target.value})}
                               placeholder="Vállalkozásod neve"
-                              className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-teal-500/50 transition-colors"
+                              className="w-full bg-teal-500/5 border border-teal-500/10 rounded-2xl px-6 py-4 text-[#042F2E] placeholder:text-emerald-900/30 focus:outline-none focus:border-teal-500/50 transition-colors"
                             />
                           </div>
                         </div>
@@ -571,7 +571,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                             value={formData.email}
                             onChange={(e) => setFormData({...formData, email: e.target.value})}
                             placeholder="Munkahelyi e-mail"
-                            className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-teal-500/50 transition-colors"
+                            className="w-full bg-teal-500/5 border border-teal-500/10 rounded-2xl px-6 py-4 text-[#042F2E] placeholder:text-emerald-900/30 focus:outline-none focus:border-teal-500/50 transition-colors"
                           />
                         </div>
                         <div className="space-y-2">
@@ -581,7 +581,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                             onChange={(e) => setFormData({...formData, comment: e.target.value})}
                             placeholder="Van-e bármi, amit még kiemelne?"
                             rows={3}
-                            className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-teal-500/50 transition-colors resize-none"
+                            className="w-full bg-teal-500/5 border border-teal-500/10 rounded-2xl px-6 py-4 text-[#042F2E] placeholder:text-emerald-900/30 focus:outline-none focus:border-teal-500/50 transition-colors resize-none"
                           />
                         </div>
                         <m.button
@@ -620,14 +620,14 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                         />
                       </div>
                       <div className="space-y-4">
-                        <h3 className="text-4xl font-bold text-white tracking-tighter italic">Köszönjük!</h3>
-                        <p className="text-gray-400 text-lg max-w-sm mx-auto">
+                        <h3 className="text-4xl font-bold text-[#042F2E] tracking-tighter italic">Köszönjük!</h3>
+                        <p className="text-emerald-900/40 text-lg max-w-sm mx-auto">
                           Az audit sikeresen lezárult. Rendszerünk elemzi az adataidat; hamarosan érkezünk a <span className="text-teal-400 font-bold underline">diagnosztikai riporttal</span> és a következő lépésekkel.
                         </p>
                       </div>
                       <button 
                         onClick={onClose}
-                        className="text-gray-500 hover:text-white transition-colors text-xs font-bold uppercase tracking-widest"
+                        className="text-emerald-900/40 hover:text-[#042F2E] transition-colors text-xs font-bold uppercase tracking-widest"
                       >
                         Ablak bezárása
                       </button>
@@ -639,7 +639,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       onClick={prevStep}
-                      className="mt-8 flex items-center gap-2 text-gray-500 hover:text-white transition-colors text-sm font-bold uppercase tracking-widest group"
+                      className="mt-8 flex items-center gap-2 text-emerald-900/40 hover:text-[#042F2E] transition-colors text-sm font-bold uppercase tracking-widest group"
                     >
                       <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Vissza
                     </m.button>
