@@ -21,9 +21,9 @@ export const AuditMagnet = () => {
               Rendszerdiagnosztika Elérhető
             </div>
 
-            <h2 className="text-5xl md:text-8xl font-bold tracking-tighter leading-[1.1] text-primary font-heading uppercase">
+            <h2 className="text-4xl md:text-7xl font-bold tracking-tighter leading-[1.1] text-primary font-heading uppercase">
               Állítsd meg a <br />
-              <span className="inline-block text-accent-gradient italic px-2 text-6xl md:text-9xl">profit-szivárgást.</span>
+              <span className="inline-block text-accent-gradient italic px-2 text-5xl md:text-8xl">profit-szivárgást.</span>
             </h2>
 
             <p className="text-secondary text-lg md:text-xl leading-relaxed max-w-2xl mx-auto font-body">

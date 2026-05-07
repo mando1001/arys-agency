@@ -222,7 +222,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                     >
                       <div className="space-y-4">
                         <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">01 / 10</span>
-                        <h3 className="text-4xl md:text-6xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Mi okozza a legtöbb napi fejfájást?</h3>
+                        <h3 className="text-3xl md:text-5xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Mi okozza a legtöbb napi fejfájást?</h3>
                         <p className="text-secondary text-base italic font-body">Többet is választhatsz</p>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -273,7 +273,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                     >
                       <div className="space-y-4">
                         <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">02 / 10</span>
-                        <h3 className="text-4xl md:text-6xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Mennyi munkaórát égetnek el a repetitív folyamatok?</h3>
+                        <h3 className="text-3xl md:text-5xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Mennyi munkaórát égetnek el a repetitív folyamatok?</h3>
                       </div>
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {[
@@ -507,7 +507,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                     >
                       <div className="space-y-4">
                         <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">09 / 10</span>
-                        <h3 className="text-4xl md:text-6xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Mikorra szeretnéd az eredményeket?</h3>
+                        <h3 className="text-3xl md:text-5xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Mikorra szeretnéd az eredményeket?</h3>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {[
@@ -537,7 +537,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                     >
                       <div className="space-y-6">
                         <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">10 / 10</span>
-                        <h3 className="text-5xl md:text-7xl font-bold text-primary tracking-tighter font-heading leading-none">Küldhetjük a diagnózist?</h3>
+                        <h3 className="text-4xl md:text-6xl font-bold text-primary tracking-tighter font-heading leading-none">Küldhetjük a diagnózist?</h3>
                       </div>
                       <div className="space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -618,7 +618,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                         />
                       </div>
                       <div className="space-y-4">
-                        <h3 className="text-5xl font-bold text-primary tracking-tighter italic font-heading">Köszönjük!</h3>
+                        <h3 className="text-4xl font-bold text-primary tracking-tighter italic font-heading">Köszönjük!</h3>
                         <p className="text-secondary text-xl max-w-sm mx-auto font-body leading-relaxed">
                           Az audit sikeresen lezárult. Hamarosan érkezünk a <span className="text-accent font-bold underline">diagnosztikai riporttal</span> és a következő lépésekkel.
                         </p>

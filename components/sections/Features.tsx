@@ -74,9 +74,9 @@ export const Features = () => {
           <div className="text-accent text-[10px] font-black uppercase tracking-[0.4em] mb-6">
             Megoldásaink
           </div>
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-primary mb-10 font-heading leading-[1.1] uppercase">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-primary mb-10 font-heading leading-[1.1] uppercase">
             Profitgyilkos folyamatok <br />
-            <span className="inline-block text-accent-gradient italic px-2 text-6xl md:text-8xl">helyett digitális gépezet.</span>
+            <span className="inline-block text-accent-gradient italic px-2 text-5xl md:text-7xl">helyett digitális gépezet.</span>
           </h2>
           <p className="text-secondary text-lg md:text-xl leading-relaxed font-body">
             Nem eszközöket adunk, hanem eredményeket. Megszüntetjük a belső súrlódásokat, hogy a céged végre úgy működjön, mint egy svájci óra.

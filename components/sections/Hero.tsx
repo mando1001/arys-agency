@@ -48,7 +48,7 @@ export const Hero = () => {
         </div>
 
         <h1 
-          className="text-6xl md:text-8xl lg:text-[7.5rem] font-bold tracking-tighter leading-[1.05] md:leading-[0.85] mb-10 text-primary font-heading uppercase"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.05] md:leading-[0.95] mb-10 text-primary font-heading uppercase"
         >
           Növeld a <span className="inline-block text-accent-gradient italic px-2">profitot</span>, <br />
           ne a <span className="text-secondary">létszámot.</span>
