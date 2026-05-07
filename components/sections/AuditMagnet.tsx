@@ -16,7 +16,7 @@ export const AuditMagnet = () => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 bg-accent/5 blur-[120px] pointer-events-none" />
           
           <div className="max-w-4xl mx-auto space-y-12 relative z-10">
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-primary text-background rounded-full text-[10px] font-black uppercase tracking-[0.4em] shadow-lg shadow-primary/10">
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-accent/10 text-accent border border-accent/20 rounded-full text-[10px] font-black uppercase tracking-[0.4em]">
               <Zap size={14} className="text-accent animate-pulse" />
               Rendszerdiagnosztika Elérhető
             </div>

@@ -2,15 +2,15 @@ import React from 'react';
 import { Mail, ArrowRight } from 'lucide-react';
 
 export const Footer = () => (
-  <footer className="relative bg-primary border-t border-white/5 pt-24 pb-12 overflow-hidden">
+  <footer className="relative bg-background border-t border-white/5 pt-24 pb-12 overflow-hidden">
     <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
     
     <div className="max-w-7xl mx-auto px-6 relative z-10">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
         <div className="col-span-1 md:col-span-2 space-y-10">
           <div className="flex items-center gap-3 group cursor-pointer">
-            <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center transition-all group-hover:rotate-[360deg] duration-700 shadow-xl shadow-white/5">
-              <div className="w-5 h-5 bg-primary rounded-md rotate-45" />
+            <div className="w-10 h-10 bg-accent rounded-xl flex items-center justify-center transition-all group-hover:rotate-[360deg] duration-700 shadow-xl shadow-accent/20">
+              <div className="w-5 h-5 bg-background rounded-md rotate-45" />
             </div>
             <span className="text-2xl font-bold tracking-tighter text-white font-heading">ARYS<span className="text-accent">.</span></span>
           </div>
@@ -19,7 +19,7 @@ export const Footer = () => (
           </p>
           <div className="flex flex-col gap-5">
             <a href="mailto:hello@arys.hu" className="text-base text-white/40 hover:text-accent transition-all flex items-center gap-3 group/mail">
-              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover/mail:bg-white group-hover/mail:text-primary transition-all">
+              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover/mail:bg-accent group-hover/mail:text-background transition-all">
                 <Mail size={16} />
               </div>
               <span className="font-bold tracking-tight">hello@arys.hu</span>
