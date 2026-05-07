@@ -23,19 +23,50 @@ export const Testimonials = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+    },
+  };
+
   return (
     <div 
       className="mt-32 w-full border-t border-white/5 pt-20"
     >
-      <p className="text-[10px] uppercase tracking-[0.4em] text-teal-400 mb-12 font-black text-center">
+      <m.p 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="text-[10px] uppercase tracking-[0.4em] text-teal-400 mb-12 font-black text-center"
+      >
         Akik már hatékonyabban dolgoznak velünk
-      </p>
+      </m.p>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <m.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        className="grid grid-cols-1 md:grid-cols-3 gap-6"
+      >
         {reviews.map((review, i) => (
           <m.div
             key={i}
-            whileHover={{ y: -5 }}
+            variants={itemVariants}
+            whileHover={{ y: -5, scale: 1.02 }}
             className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl text-left hover:border-teal-500/30 transition-all duration-500"
           >
             <div className="flex gap-1 mb-4">
@@ -48,7 +79,7 @@ export const Testimonials = () => {
             </div>
           </m.div>
         ))}
-      </div>
+      </m.div>
     </div>
   );
 };

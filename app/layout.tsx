@@ -5,11 +5,13 @@ import './globals.css';
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-space-grotesk',
+  display: 'swap',
 });
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
 });
 
 export const viewport: Viewport = {
@@ -44,7 +46,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="hu" className={`${spaceGrotesk.variable} ${inter.variable} dark`}>
-      <body className="bg-[#0A0B0D] text-white font-sans antialiased overflow-x-hidden selection:bg-teal-500/30 selection:text-teal-200 flex flex-col" suppressHydrationWarning>
+      <body className="bg-[#0A0B0D] bg-mesh text-white font-sans antialiased overflow-x-hidden selection:bg-teal-500/30 selection:text-teal-200 flex flex-col min-h-screen" suppressHydrationWarning>
         {children}
       </body>
     </html>

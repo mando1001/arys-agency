@@ -27,11 +27,21 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-[90] transition-all duration-500 ${isScrolled ? 'bg-[#0A0B0D]/80 backdrop-blur-2xl py-4 border-b border-white/5' : 'bg-transparent py-8'}`}>
+    <header 
+      className={`fixed top-0 left-0 right-0 z-[90] transition-all duration-700 ease-in-out ${
+        isScrolled 
+          ? 'bg-[#0A0B0D]/40 backdrop-blur-xl py-4 border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]' 
+          : 'bg-transparent py-8 border-b border-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-center">
-        <div className="hover:scale-105 transition-transform duration-300 cursor-pointer">
+        <m.div 
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="transition-transform duration-300 cursor-pointer"
+        >
           <Logo />
-        </div>
+        </m.div>
       </div>
     </header>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { m } from 'motion/react';
 import { Workflow, Activity, Fingerprint, LayoutTemplate } from 'lucide-react';
 import { FlowVisual, BrainVisual } from '../visuals/InteractiveVisuals';
 import { FeatureCard } from './FeatureCard';
@@ -53,10 +54,26 @@ export const Features = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
   return (
     <section id="megoldasok" className="py-32 relative overflow-hidden border-t border-white/5 bg-[#0A0B0D]">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="mb-20 max-w-2xl">
+        <m.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-20 max-w-2xl"
+        >
           <div className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em] mb-4">
             Megoldásaink
           </div>
@@ -67,13 +84,19 @@ export const Features = () => {
           <p className="text-gray-400 text-lg leading-relaxed">
             A központosított rendszerek és okos munkafolyamatok kombinációjával cégéből eltüntetjük a súrlódásokat. Az eredmény: kiszámítható profit és tiszta fej.
           </p>
-        </div>
+        </m.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-6">
+        <m.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-6"
+        >
           {features.map((feature, i) => (
             <FeatureCard key={feature.id} feature={feature} index={i} />
           ))}
-        </div>
+        </m.div>
       </div>
     </section>
   );
