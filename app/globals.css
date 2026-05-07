@@ -9,7 +9,6 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
     background-color: #0A0B0D;
   }
 
@@ -31,7 +30,6 @@
       radial-gradient(at 100% 0%, hsla(210, 100%, 50%, 0.08) 0px, transparent 50%),
       radial-gradient(at 100% 100%, hsla(280, 100%, 50%, 0.08) 0px, transparent 50%),
       radial-gradient(at 0% 100%, hsla(170, 100%, 50%, 0.08) 0px, transparent 50%);
-    background-attachment: fixed;
   }
 
   .glass-card {

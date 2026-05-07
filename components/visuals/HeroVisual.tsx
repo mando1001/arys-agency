@@ -10,8 +10,8 @@ export const HeroVisual = () => {
   
   return (
     <div className="w-full max-w-6xl mx-auto mt-32 relative group cursor-default">
-      {/* Decorative glow behind the whole visual - significantly reduced blur for mobile */}
-      <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-teal-500/10 ${isMobile ? 'blur-[40px]' : 'blur-[120px]'} rounded-full group-hover:bg-teal-500/20 transition-all duration-700`} />
+      {/* Decorative glow behind the whole visual - significantly reduced blur for performance */}
+      <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-teal-500/10 ${isMobile ? 'blur-[20px]' : 'blur-[60px]'} rounded-full group-hover:bg-teal-500/20 transition-all duration-700 gpu-accel`} />
 
       <div className={`relative rounded-[40px] border border-white/10 bg-white/5 ${!isMobile ? 'backdrop-blur-md backdrop-optimize' : ''} p-8 lg:p-16 overflow-hidden gpu-accel will-change-transform`}>
         {/* Animated gradient sweep - desktop only to save mobile CPU */}

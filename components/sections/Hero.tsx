@@ -31,9 +31,9 @@ export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-[#0A0B0D]">
       {/* Premium Background Effects */}
-      <div className="absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]">
-        <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[80px] md:blur-[150px]" />
-        <div className="absolute bottom-0 -left-20 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[60px] md:blur-[130px]" />
+      <div className="absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)] gpu-accel will-change-transform">
+        <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-teal-500/5 rounded-full blur-[40px] md:blur-[60px] gpu-accel" />
+        <div className="absolute bottom-0 -left-20 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[30px] md:blur-[50px] gpu-accel" />
         <div className="absolute inset-0 bg-grid-white opacity-5 [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
       </div>
 

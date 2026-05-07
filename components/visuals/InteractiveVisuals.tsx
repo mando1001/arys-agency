@@ -10,16 +10,8 @@ export const FlowVisual = () => {
       <div className="relative w-full h-full flex items-center justify-center">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(45,212,191,0.05),transparent_70%)] group-hover:bg-[radial-gradient(circle_at_50%_50%,rgba(45,212,191,0.1),transparent_70%)] transition-colors duration-1000" />
         
-        <svg className="w-full h-full max-w-[500px] max-h-[400px]" viewBox="0 0 500 400">
-          <defs>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
-              <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-          </defs>
+        <svg className="w-full h-full max-w-[500px] max-h-[400px] gpu-accel" viewBox="0 0 500 400">
+
           <g transform="translate(250, 200)">
             <rect
               width="80"
@@ -66,8 +58,8 @@ export const FlowVisual = () => {
                 r="4"
                 cx={node.x}
                 cy={node.y}
-                className="fill-teal-400"
-                filter="url(#glow)"
+                className="fill-teal-400 shadow-teal-500/50"
+
                 initial={{ opacity: 0 }}
                 animate={{
                   cx: [node.x, 250],
@@ -103,16 +95,8 @@ export const BrainVisual = () => {
   return (
     <div className="absolute inset-0 pointer-events-none z-0 group hidden md:block overflow-visible">
       <div className="relative w-full h-full flex items-center overflow-visible">
-        <svg className="w-full h-full" viewBox="0 0 1200 300" preserveAspectRatio="xMaxYMid meet">
-          <defs>
-            <filter id="brainGlow">
-              <feGaussianBlur stdDeviation="2" result="blur"/>
-              <feMerge>
-                <feMergeNode in="blur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-          </defs>
+        <svg className="w-full h-full gpu-accel" viewBox="0 0 1200 300" preserveAspectRatio="xMaxYMid meet">
+
           <g className="stroke-orange-500/10 group-hover:stroke-orange-500/20 transition-colors duration-700">
             {[
               { x1: 500, y1: 150, x2: 1100, y2: 80 },
@@ -134,8 +118,8 @@ export const BrainVisual = () => {
               r="2"
               cx="500"
               cy="150"
-              className="fill-orange-400"
-              filter="url(#brainGlow)"
+              className="fill-orange-400 shadow-orange-500/50"
+
               initial={{ opacity: 0 }}
               animate={{
                 cx: [500, 1100],
