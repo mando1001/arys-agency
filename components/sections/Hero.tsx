@@ -81,10 +81,6 @@ export const Hero = () => {
         <div className="w-full">
           <HeroVisual />
         </div>
-        
-        <div className="w-full">
-          <Testimonials />
-        </div>
       </div>
     </section>
   );

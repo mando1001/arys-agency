@@ -16,6 +16,10 @@ const FAQ = dynamic(() => import('../components/sections/FAQ').then(mod => mod.F
   ssr: true
 });
 
+const Testimonials = dynamic(() => import('../components/sections/Testimonials').then(mod => mod.Testimonials), {
+  ssr: true
+});
+
 const ModalController = dynamic(() => import('./ModalController').then(mod => mod.ModalController), {
   ssr: false
 });
@@ -25,6 +29,9 @@ export function ClientWrapper() {
     <>
       <Suspense fallback={<div className="h-96 w-full bg-[#0A0B0D]" />}>
         <Features />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Testimonials />
       </Suspense>
       <Suspense fallback={null}>
         <FAQ />
