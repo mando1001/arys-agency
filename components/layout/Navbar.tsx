@@ -52,15 +52,6 @@ export const Navbar = () => {
         </m.div>
 
         <div className="hidden md:flex items-center gap-8">
-          {['Megoldások', 'Audit'].map((item) => (
-            <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`}
-              className="text-sm font-bold text-white/40 hover:text-primary transition-colors cursor-pointer tracking-wide uppercase text-[10px]"
-            >
-              {item}
-            </a>
-          ))}
           <button 
             onClick={() => window.dispatchEvent(new CustomEvent('open-audit'))}
             className="px-6 py-2.5 bg-accent text-background text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-[#0EA5E9] transition-all cursor-pointer shadow-lg shadow-accent/10 active:scale-95"

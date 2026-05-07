@@ -9,10 +9,10 @@ export const Features = () => {
     {
       id: 'flow',
       title: 'ARYS Flow',
-      subtitle: 'Munkafolyamat Automatizáció',
-      description: 'A B.L.A.S.T. protokoll alapú, öngyógyító munkafolyamatok. Eltüntetjük a manuális adatrögzítést és a hibafaktorokat a mindennapokból.',
+      subtitle: 'Hiring-free skálázódás',
+      description: 'Szüntesd meg a repetitív manuális munkát. Automatizált munkafolyamatainkkal a csapatod adminisztráció helyett bevételt termel, így növekedésnél nem lesz szükséged újabb és újabb emberek felvételére.',
       icon: <Workflow className="w-8 h-8 text-teal-400" />,
-      benefits: ['Zero-error pipeline', '80% időmegtakarítás', 'Skálázható alapok'],
+      benefits: ['0% hibaarány', 'Felszabadult órák', 'Alacsonyabb bérköltség'],
       className: 'md:col-span-8 md:row-span-2',
       gradient: 'from-teal-500/20 via-teal-500/5 to-transparent',
       mobileAccent: 'border-l-teal-500/60 [background:linear-gradient(135deg,rgba(45,212,191,0.06),transparent_60%)]',
@@ -21,10 +21,10 @@ export const Features = () => {
     {
       id: 'reach',
       title: 'ARYS Reach',
-      subtitle: 'Lead Generálás',
-      description: 'Zökkenőmentes lead-to-deal folyamat. Nincs több elvesztett e-mail vagy elfelejtett utánkövetés.',
+      subtitle: 'Megmentett bevételek',
+      description: 'Zárjuk be a réseket, ahol eddig kifolyt a pénz. Egyetlen lead sem veszhet el: automata válaszokkal és utánkövetéssel maximalizáljuk a konverziódat.',
       icon: <Activity className="w-8 h-8 text-blue-400" />,
-      benefits: ['Automata naptár', '24/7 válaszadás'],
+      benefits: ['Nincs elveszett lead', '24/7 értékesítés'],
       className: 'md:col-span-4 md:row-span-1',
       gradient: 'from-blue-500/20 via-blue-500/5 to-transparent',
       mobileAccent: 'border-l-blue-500/60 [background:linear-gradient(135deg,rgba(59,130,246,0.06),transparent_60%)]',
@@ -32,10 +32,10 @@ export const Features = () => {
     {
       id: 'brand',
       title: 'ARYS Brand',
-      subtitle: 'Digitális Megjelenés',
-      description: 'Prémium technológiai háttér és egységes arculat, ami bizalmat épít és konverziót növel.',
+      subtitle: 'Bizalomépítés',
+      description: 'A prémium megjelenés nem luxus, hanem eszköz a magasabb árazáshoz. Olyan digitális arculatot adunk, ami azonnal eladja a szakértelmedet.',
       icon: <Fingerprint className="w-8 h-8 text-purple-400" />,
-      benefits: ['Modern tech stack', 'Személyre szabott UI'],
+      benefits: ['Magasabb konverzió', 'Szakértői státusz'],
       className: 'md:col-span-4 md:row-span-1',
       gradient: 'from-purple-500/20 via-purple-500/5 to-transparent',
       mobileAccent: 'border-l-purple-500/60 [background:linear-gradient(135deg,rgba(168,85,247,0.06),transparent_60%)]',
@@ -43,8 +43,8 @@ export const Features = () => {
     {
       id: 'brain',
       title: 'ARYS Brain',
-      subtitle: 'Vállalati Tudástár',
-      description: 'Saját, intelligens tudásbázis a céges adatokra építve. Felejtsd el a folyamatos kérdezgetést; válaszok másodpercek alatt.',
+      subtitle: 'Zökkenőmentes operáció',
+      description: 'Vedd ki a válaszokat a fejekből és tedd egy központi AI agyba. Nincs több félreértés, elfelejtett infó vagy folyamatos kérdezgetés — csak tiszta hatékonyság.',
       icon: <LayoutTemplate className="w-8 h-8 text-orange-400" />,
       benefits: ['Azonnali válaszok', 'Központosított adatok'],
       className: 'md:col-span-12 md:row-span-1',
@@ -66,7 +66,7 @@ export const Features = () => {
   };
 
   return (
-    <section id="megoldasok" className="py-32 relative overflow-hidden border-t border-slate-200 bg-background">
+    <section id="megoldasok" className="py-32 relative overflow-hidden border-t border-white/5 bg-background">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div 
           className="mb-24 max-w-3xl gpu-accel"
@@ -74,12 +74,12 @@ export const Features = () => {
           <div className="text-accent text-[10px] font-black uppercase tracking-[0.4em] mb-6">
             Megoldásaink
           </div>
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-primary mb-10 font-heading leading-[1.1]">
-            Változtasd a káoszt <br />
-            <span className="inline-block text-accent-gradient italic px-2">átlátható növekedéssé.</span>
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-primary mb-10 font-heading leading-[1.1] uppercase">
+            Profitgyilkos folyamatok <br />
+            <span className="inline-block text-accent-gradient italic px-2 text-6xl md:text-8xl">helyett digitális gépezet.</span>
           </h2>
           <p className="text-secondary text-lg md:text-xl leading-relaxed font-body">
-            A központosított rendszerek és okos munkafolyamatok kombinációjával cégéből eltüntetjük a súrlódásokat. Az eredmény: kiszámítható profit és tiszta fej.
+            Nem eszközöket adunk, hanem eredményeket. Megszüntetjük a belső súrlódásokat, hogy a céged végre úgy működjön, mint egy svájci óra.
           </p>
         </div>
 

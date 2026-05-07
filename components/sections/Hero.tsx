@@ -48,16 +48,16 @@ export const Hero = () => {
         </div>
 
         <h1 
-          className="text-6xl md:text-8xl lg:text-[7.5rem] font-bold tracking-tighter leading-[1.05] md:leading-[0.85] mb-10 text-primary font-heading"
+          className="text-6xl md:text-8xl lg:text-[7.5rem] font-bold tracking-tighter leading-[1.05] md:leading-[0.85] mb-10 text-primary font-heading uppercase"
         >
           Növeld a <span className="inline-block text-accent-gradient italic px-2">profitot</span>, <br />
-          csökkentsd a <span className="text-secondary">káoszt.</span>
+          ne a <span className="text-secondary">létszámot.</span>
         </h1>
 
         <p 
           className="text-lg md:text-2xl text-secondary max-w-4xl text-center leading-relaxed mb-16 font-body"
         >
-          Az ARYS célja, hogy levegye a manuális adminisztrációt, az elvesző leadeket és a belső kavarodást a csapatod válláról. Gyorsabb válaszok, kevesebb hiba, több lezárt ügy — úgy, hogy közben nem kell új embereket felvenned minden növekedési lépéshez.
+          Szüntesd meg a profitgyilkos manuális folyamatokat és az emberi hibákat. Automatizációval segítünk, hogy a csapatod ne adminisztráljon, hanem értéket teremtsen — így a növekedéshez nem több emberre, hanem jobb rendszerekre lesz szükséged.
         </p>
 
         <div 

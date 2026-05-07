@@ -15,7 +15,7 @@ export const Footer = () => (
             <span className="text-2xl font-bold tracking-tighter text-white font-heading">ARYS<span className="text-accent">.</span></span>
           </div>
           <p className="text-white/60 max-w-sm leading-relaxed text-base font-body">
-            Az ARYS segít a modern vállalkozásoknak felszabadítani a potenciáljukat intelligens automatizációval és adatvezérelt folyamatoptimalizálással.
+            Segítünk a növekedésre fókuszálni a profitgyilkos adminisztráció helyett. Automatizált rendszerekkel skálázzuk a cégedet, hogy a csapatod csak azzal foglalkozzon, ami értéket teremt.
           </p>
           <div className="flex flex-col gap-5">
             <a href="mailto:hello@arys.hu" className="text-base text-white/40 hover:text-accent transition-all flex items-center gap-3 group/mail">
