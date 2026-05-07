@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
-import { m } from 'motion/react';
-import { Quote } from 'lucide-react';
+import React, { useState } from 'react';
+import { m, AnimatePresence } from 'motion/react';
+import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
 
 const reviews = [
   {
@@ -24,81 +24,122 @@ const reviews = [
     name: "Kovács Péter",
     role: "CEO, TechFlow Solutions",
     content: "Az automatizációval havi 40+ munkaórát szabadítottunk fel. Nem csak pénzt spórolunk, de a csapat is sokkal boldogabb, hogy nem kell adminisztrálniuk.",
-  },
-  {
-    name: "Nagy Emese",
-    role: "Marketing Manager, GrowthLab",
-    content: "A lead-kezelő rendszerüknek köszönhetően a válaszidőnk 2 óráról 5 percre csökkent. A konverziónk 30%-kal nőtt az első hónapban.",
-  },
-  {
-    name: "Szabó Márton",
-    role: "Operations Lead, Logistics Pro",
-    content: "Végre látom, mi történik a cégben. Az ARYS Brain-nel minden adatunk egy helyen van, és azonnal választ kapunk bármilyen operatív kérdésre.",
   }
 ];
 
-const TestimonialCard = ({ review }: { review: typeof reviews[0] }) => (
-  <div className="flex-shrink-0 w-[350px] md:w-[450px] p-8 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-accent/30 transition-all duration-500 group relative overflow-hidden">
-    <div className="absolute top-0 right-0 p-6 text-white/5 group-hover:text-accent/10 transition-colors">
-      <Quote size={80} strokeWidth={1} />
-    </div>
-    
-    <p className="text-secondary text-lg leading-relaxed mb-8 relative z-10 font-body">
-      "{review.content}"
-    </p>
-    
-    <div className="flex flex-col gap-1 relative z-10">
-      <div className="text-primary font-bold text-xl font-heading">{review.name}</div>
-      <div className="text-accent text-[10px] font-black uppercase tracking-[0.2em]">{review.role}</div>
-    </div>
-  </div>
-);
-
-const Marquee = ({ items, reverse = false }: { items: typeof reviews, reverse?: boolean }) => {
-  return (
-    <div className="flex overflow-hidden select-none [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] py-4">
-      <m.div
-        animate={{
-          x: reverse ? ["-50%", "0%"] : ["0%", "-50%"],
-        }}
-        transition={{
-          duration: 40,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-        className="flex gap-6 min-w-max"
-      >
-        {[...items, ...items].map((review, i) => (
-          <TestimonialCard key={i} review={review} />
-        ))}
-      </m.div>
-    </div>
-  );
-};
-
 export const Testimonials = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 50 : -50,
+      opacity: 0
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 50 : -50,
+      opacity: 0
+    })
+  };
+
+  const nextStep = () => {
+    setDirection(1);
+    setCurrentIndex((prev) => (prev + 1) % reviews.length);
+  };
+
+  const prevStep = () => {
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
+  };
+
   return (
-    <div className="mt-32 w-full py-24 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
-        <p className="text-accent text-[10px] font-black uppercase tracking-[0.4em] mb-6">
-          Sikertörténetek
-        </p>
-        <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-primary font-heading uppercase mb-8">
-          Akik már <br />
-          <span className="inline-block text-accent-gradient italic px-2">hatékonyabban skáláznak.</span>
-        </h2>
+    <section className="py-32 relative overflow-hidden bg-background border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          {/* Left Side: Content & Nav */}
+          <div className="space-y-10">
+            <div className="space-y-6">
+              <div className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">
+                Sikertörténetek
+              </div>
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-primary font-heading uppercase leading-[0.95]">
+                Akik már <br />
+                <span className="inline-block text-accent-gradient italic px-2">skálázódnak.</span>
+              </h2>
+              <p className="text-secondary text-lg md:text-xl leading-relaxed max-w-md font-body">
+                Nézd meg, hogyan változtattuk meg más vállalkozások mindennapjait az automatizáció erejével.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <button 
+                onClick={prevStep}
+                className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center text-primary hover:border-accent hover:text-accent transition-all group active:scale-95"
+              >
+                <ArrowLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
+              </button>
+              <button 
+                onClick={nextStep}
+                className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center text-primary hover:border-accent hover:text-accent transition-all group active:scale-95"
+              >
+                <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          </div>
+
+          {/* Right Side: Testimonial Card */}
+          <div className="relative min-h-[400px] flex items-center">
+            <AnimatePresence initial={false} custom={direction} mode="wait">
+              <m.div
+                key={currentIndex}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 }
+                }}
+                className="w-full space-y-8"
+              >
+                <Quote className="text-accent w-12 h-12 mb-6 opacity-50" strokeWidth={1.5} />
+                
+                <blockquote className="text-2xl md:text-4xl font-medium text-primary leading-tight font-heading tracking-tight">
+                  "{reviews[currentIndex].content}"
+                </blockquote>
+
+                <div className="flex items-center gap-6 pt-8">
+                  <div className="w-16 h-16 rounded-full bg-accent/20 border border-accent/30 flex items-center justify-center overflow-hidden">
+                    <span className="text-accent font-black text-xl">
+                      {reviews[currentIndex].name.charAt(0)}
+                    </span>
+                  </div>
+                  <div>
+                    <div className="text-xl font-bold text-primary font-heading">
+                      {reviews[currentIndex].name}
+                    </div>
+                    <div className="text-accent text-[10px] font-black uppercase tracking-[0.2em] mt-1">
+                      {reviews[currentIndex].role}
+                    </div>
+                  </div>
+                </div>
+              </m.div>
+            </AnimatePresence>
+          </div>
+        </div>
       </div>
 
-      <div className="flex flex-col gap-6">
-        <Marquee items={reviews.slice(0, 3)} />
-        <Marquee items={reviews.slice(3, 6)} reverse />
+      {/* Decorative background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none -z-10 opacity-20">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px]" />
       </div>
-
-      {/* Background decoration */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none -z-10 opacity-30">
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px]" />
-      </div>
-    </div>
+    </section>
   );
 };
