@@ -10,14 +10,14 @@ export const HeroVisual = () => {
   
   return (
     <div className="w-full max-w-6xl mx-auto mt-32 relative group cursor-default">
-      {/* Decorative glow behind the whole visual - significantly reduced blur for performance */}
-      <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-teal-500/10 ${isMobile ? 'blur-[20px]' : 'blur-[60px]'} rounded-full group-hover:bg-teal-500/20 transition-all duration-700 gpu-accel`} />
+      {/* Decorative glow behind the whole visual */}
+      <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-accent/5 ${isMobile ? 'blur-[20px]' : 'blur-[80px]'} rounded-full transition-all duration-700 gpu-accel`} />
 
-      <div className={`relative rounded-[40px] border border-teal-500/10 bg-white/40 ${!isMobile ? 'backdrop-blur-md backdrop-optimize' : ''} p-8 lg:p-16 overflow-hidden gpu-accel`}>
+      <div className={`relative rounded-[40px] border-2 border-slate-200 bg-white ${!isMobile ? 'backdrop-blur-md backdrop-optimize shadow-2xl shadow-primary/5' : 'shadow-lg'} p-8 lg:p-16 overflow-hidden gpu-accel`}>
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16 relative z-10">
           {/* LEFT: Chaos */}
-          <div className="flex-1 flex flex-col gap-5 w-full">
-            <div className="text-slate-500 text-[10px] font-black uppercase tracking-[0.3em] text-left mb-4 pl-2 opacity-80">Jelenlegi állapot (Káosz)</div>
+          <div className="flex-1 flex flex-col gap-6 w-full">
+            <div className="text-secondary text-[10px] font-black uppercase tracking-[0.4em] text-left mb-2 pl-2 opacity-60">Jelenlegi állapot (Káosz)</div>
             {[
               { icon: <Mail size={18} />, title: 'Feldolgozatlan Emailek', desc: 'Lassú reakcióidő' },
               { icon: <FileText size={18} />, title: 'Manuális adatrögzítés', desc: 'Magas hibafaktor' },
@@ -25,12 +25,12 @@ export const HeroVisual = () => {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-5 p-5 rounded-3xl bg-slate-100/80 border border-slate-200 text-slate-600 grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 hover:border-red-200 hover:bg-red-50/50 shadow-sm"
+                className="flex items-center gap-5 p-6 rounded-[2rem] bg-slate-50 border border-slate-200 text-slate-600 grayscale-[0.8] group-hover:grayscale-0 transition-all duration-700 hover:border-red-300 hover:bg-red-50/30 shadow-sm"
               >
-                <div className="p-4 rounded-2xl bg-slate-200/50 text-slate-500 group-hover:text-red-500 group-hover:bg-red-100/50 transition-colors">{item.icon}</div>
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 text-slate-400 group-hover:text-red-500 group-hover:border-red-200 transition-colors">{item.icon}</div>
                 <div className="flex flex-col items-start">
-                  <span className="text-sm font-bold text-slate-700">{item.title}</span>
-                  <span className="text-[10px] text-red-600 font-bold bg-red-100 px-2 py-0.5 rounded-full mt-2 border border-red-200 uppercase tracking-wider">{item.desc}</span>
+                  <span className="text-sm font-bold text-primary">{item.title}</span>
+                  <span className="text-[10px] text-red-600 font-bold bg-red-100 px-3 py-1 rounded-full mt-2 border border-red-200 uppercase tracking-widest">{item.desc}</span>
                 </div>
               </div>
             ))}
@@ -39,25 +39,25 @@ export const HeroVisual = () => {
           {/* CENTER: ARYS Engine */}
           <div className="flex-shrink-0 relative py-16 lg:py-0 flex items-center justify-center">
             {/* Stationary rings */}
-            <div className="absolute inset-0 m-auto w-[220px] h-[220px] rounded-full border-2 border-teal-500/20 group-hover:border-teal-500/40 group-hover:scale-110 transition-all duration-1000 aspect-square" />
-            <div className="absolute inset-0 m-auto w-[300px] h-[300px] rounded-full border border-teal-500/10 group-hover:border-teal-500/20 transition-all duration-1000 aspect-square border-dashed" />
+            <div className="absolute inset-0 m-auto w-[240px] h-[240px] rounded-full border-2 border-accent/20 group-hover:border-accent/40 group-hover:scale-110 transition-all duration-1000 aspect-square animate-pulse" />
+            <div className="absolute inset-0 m-auto w-[320px] h-[320px] rounded-full border border-accent/10 group-hover:border-accent/20 transition-all duration-1000 aspect-square border-dashed animate-spin-slow" />
 
             <div
-              className="w-40 h-40 rounded-[2.5rem] border-2 border-teal-500/40 bg-white backdrop-blur-md backdrop-optimize flex flex-col items-center justify-center relative z-10 cursor-pointer overflow-hidden shadow-2xl gpu-accel"
+              className="w-44 h-44 rounded-[3rem] border-2 border-primary bg-primary flex flex-col items-center justify-center relative z-10 cursor-pointer overflow-hidden shadow-[0_30px_60px_-15px_rgba(15,23,42,0.4)] hover:scale-105 transition-transform gpu-accel"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-transparent" />
-              <span className="text-4xl font-black text-slate-900 tracking-tighter mb-1 relative z-10">ARYS</span>
-              <span className="text-[10px] text-teal-600 font-black tracking-[0.2em] uppercase bg-teal-50 px-3 py-1 rounded-full relative z-10 border border-teal-200">B.L.A.S.T.</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent" />
+              <span className="text-4xl font-bold text-white tracking-tighter mb-1 relative z-10 font-heading">ARYS</span>
+              <span className="text-[10px] text-accent font-black tracking-[0.2em] uppercase bg-white/10 px-4 py-1.5 rounded-full relative z-10 border border-white/20">B.L.A.S.T.</span>
             </div>
 
             {/* Connecting dots */}
-            <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-teal-500 shadow-[0_0_10px_rgba(20,184,166,0.5)]" />
-            <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-teal-500 shadow-[0_0_10px_rgba(20,184,166,0.5)]" />
+            <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-accent shadow-[0_0_15px_rgba(20,184,166,0.6)]" />
+            <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-accent shadow-[0_0_15px_rgba(20,184,166,0.6)]" />
           </div>
 
           {/* RIGHT: Order */}
-          <div className="flex-1 flex flex-col gap-5 w-full">
-            <div className="text-teal-600 text-[10px] font-black uppercase tracking-[0.3em] text-left lg:text-right mb-4 pr-2 opacity-80">Újbóli növekedés (Rend)</div>
+          <div className="flex-1 flex flex-col gap-6 w-full">
+            <div className="text-accent text-[10px] font-black uppercase tracking-[0.4em] text-left lg:text-right mb-2 pr-2">Újbóli növekedés (Rend)</div>
             {[
               { icon: <Database size={18} />, title: 'Központosított Tudás', desc: '100% Precizitás' },
               { icon: <Calendar size={18} />, title: 'Automata Workflow-k', desc: 'Folyamatos működés' },
@@ -65,12 +65,12 @@ export const HeroVisual = () => {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-5 p-5 rounded-3xl bg-white border border-teal-200 shadow-sm transition-all hover:border-teal-400 hover:shadow-md gpu-accel"
+                className="flex items-center gap-5 p-6 rounded-[2rem] bg-white border-2 border-accent/10 shadow-md shadow-accent/5 transition-all hover:border-accent hover:shadow-xl hover:shadow-accent/10 group/card gpu-accel"
               >
-                <div className="p-4 rounded-2xl bg-teal-50 text-teal-600 border border-teal-100">{item.icon}</div>
+                <div className="p-4 rounded-2xl bg-accent/5 text-accent border border-accent/10 group-hover/card:bg-accent group-hover/card:text-white transition-colors">{item.icon}</div>
                 <div className="flex flex-col items-start lg:items-end w-full">
-                  <span className="text-sm font-bold text-slate-900">{item.title}</span>
-                  <span className="text-[10px] text-teal-600 font-black mt-2 uppercase tracking-wider bg-teal-50 px-2 py-0.5 rounded-full border border-teal-100">{item.desc}</span>
+                  <span className="text-sm font-bold text-primary">{item.title}</span>
+                  <span className="text-[10px] text-accent font-black mt-2 uppercase tracking-widest bg-accent/10 px-3 py-1 rounded-full border border-accent/20">{item.desc}</span>
                 </div>
               </div>
             ))}

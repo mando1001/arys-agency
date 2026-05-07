@@ -136,21 +136,21 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
       whileHover={{ scale: 1.02, y: -2 }}
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
-      className={`relative flex flex-col items-center justify-center p-8 rounded-[2rem] border transition-all duration-500 ${
+      className={`relative flex flex-col items-center justify-center p-8 rounded-[2rem] border-2 transition-all duration-500 ${
         isSelected 
-        ? 'border-teal-500 bg-teal-500/10 shadow-[0_0_40px_-10px_rgba(45,212,191,0.2)]' 
-        : 'border-teal-500/5 bg-teal-500/5 hover:border-teal-500/20 hover:bg-teal-500/10'
+        ? 'border-accent bg-accent/5 shadow-xl shadow-accent/5' 
+        : 'border-slate-100 bg-slate-50 hover:border-slate-200 hover:bg-white'
       }`}
     >
-      <div className={`mb-4 p-4 rounded-2xl transition-colors ${isSelected ? 'text-teal-600 bg-teal-500/10' : 'text-emerald-900/40 bg-teal-500/5'}`}>
+      <div className={`mb-4 p-4 rounded-2xl transition-all ${isSelected ? 'text-white bg-accent shadow-lg shadow-accent/20' : 'text-slate-400 bg-white border border-slate-200'}`}>
         {icon}
       </div>
-      <span className={`text-sm font-bold text-center tracking-tight ${isSelected ? 'text-[#042F2E]' : 'text-emerald-900/60'}`}>
+      <span className={`text-sm font-bold text-center tracking-tight font-body ${isSelected ? 'text-primary' : 'text-secondary'}`}>
         {title}
       </span>
       {isSelected && (
         <m.div 
-          className="absolute inset-0 border-2 border-teal-500 rounded-[2rem]" 
+          className="absolute inset-0 border-2 border-accent rounded-[2rem]" 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.2 }}
@@ -165,27 +165,27 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#F2F9F7]/90 backdrop-blur-2xl"
+        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-white/80 backdrop-blur-2xl"
       >
-        <button onClick={onClose} className="absolute top-8 right-8 text-emerald-900/40 hover:text-[#042F2E] transition-colors z-[110]">
+        <button onClick={onClose} className="absolute top-8 right-8 text-secondary hover:text-primary transition-colors z-[110]">
           <X className="w-8 h-8" />
         </button>
 
         <m.div
           initial={{ y: 40, opacity: 0, scale: 0.95 }}
           animate={{ y: 0, opacity: 1, scale: 1 }}
-          className="w-full max-w-4xl bg-white border border-teal-500/10 rounded-[3rem] shadow-[0_40px_100px_-20px_rgba(13,148,136,0.1)] relative max-h-[90vh] flex flex-col"
+          className="w-full max-w-4xl bg-white border-2 border-slate-200 rounded-[3rem] shadow-2xl shadow-primary/5 relative max-h-[90vh] flex flex-col"
         >
           {/* Progress Bar */}
-          <div className="absolute top-0 left-0 w-full h-1.5 bg-white/5 z-20">
+          <div className="absolute top-0 left-0 w-full h-2 bg-slate-50 z-20 overflow-hidden rounded-t-[3rem]">
             <m.div
-              className="h-full bg-gradient-to-r from-teal-500 to-blue-500 shadow-[0_0_20px_rgba(45,212,191,0.5)]"
+              className="h-full bg-accent shadow-[0_0_15px_rgba(20,184,166,0.5)]"
               initial={{ width: 0 }}
               animate={{ width: `${(Math.min(step, 10) / 10) * 100}%` }}
             />
           </div>
 
-          <div className="p-8 md:p-16 overflow-y-auto flex-1 custom-scrollbar">
+          <div className="p-8 md:p-20 overflow-y-auto flex-1 custom-scrollbar">
             <AnimatePresence mode="wait">
               {isScanning ? (
                 <m.div
@@ -193,21 +193,21 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="flex flex-col items-center justify-center py-20 space-y-8"
+                  className="flex flex-col items-center justify-center py-20 space-y-10"
                 >
-                  <div className="relative w-32 h-32">
+                  <div className="relative w-40 h-40">
                     <m.div 
                       animate={{ rotate: 360 }}
                       transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-                      className="absolute inset-0 rounded-full border-2 border-teal-500/20 border-t-teal-500"
+                      className="absolute inset-0 rounded-full border-4 border-slate-100 border-t-accent shadow-xl shadow-accent/10"
                     />
-                    <div className="absolute inset-4 rounded-full bg-teal-500/10 flex items-center justify-center">
-                      <Activity className="w-10 h-10 text-teal-400 animate-pulse" />
+                    <div className="absolute inset-4 rounded-full bg-accent/5 flex items-center justify-center">
+                      <Activity className="w-12 h-12 text-accent animate-pulse" />
                     </div>
                   </div>
-                  <div className="text-center h-20">
-                    <h3 className="text-2xl font-bold text-[#042F2E] mb-2 tracking-tight">{scanMessage}</h3>
-                    <p className="text-gray-500 text-sm">ARYS Engine elemzi a megadott adatokat</p>
+                  <div className="text-center">
+                    <h3 className="text-3xl font-bold text-primary mb-3 tracking-tighter font-heading">{scanMessage}</h3>
+                    <p className="text-secondary text-base font-body">ARYS Engine elemzi a megadott adatokat</p>
                   </div>
                 </m.div>
               ) : (
@@ -218,14 +218,14 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="space-y-10"
+                      className="space-y-12"
                     >
-                      <div className="space-y-2">
-                        <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">01 / 10</span>
-                        <h3 className="text-3xl md:text-5xl font-bold text-[#042F2E] tracking-tighter">Mi okozza a legtöbb napi fejfájást vagy elakadást?</h3>
-                        <p className="text-emerald-900/40 text-sm italic">Többet is választhatsz</p>
+                      <div className="space-y-4">
+                        <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">01 / 10</span>
+                        <h3 className="text-4xl md:text-6xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Mi okozza a legtöbb napi fejfájást?</h3>
+                        <p className="text-secondary text-base italic font-body">Többet is választhatsz</p>
                       </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         {[
                           { id: 'data', title: 'Manuális adatrögzítés & Másolás', icon: <Database size={24} /> },
                           { id: 'comm', title: 'Kaotikus ügyfélkommunikáció', icon: <Mail size={24} /> },
@@ -249,13 +249,13 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                           />
                         ))}
                       </div>
-                      <div className="flex justify-end pt-4">
+                      <div className="flex justify-end pt-8">
                         <m.button
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                           onClick={nextStep}
                           disabled={formData.mainObstacles.length === 0}
-                          className="px-8 py-4 bg-teal-500/10 hover:bg-teal-500 hover:text-[#042F2E] disabled:opacity-30 disabled:hover:bg-teal-500/10 disabled:hover:text-[#042F2E] text-[#042F2E] font-bold rounded-2xl transition-all flex items-center gap-2 group"
+                          className="px-10 py-5 bg-primary text-white disabled:opacity-30 font-black rounded-2xl transition-all flex items-center gap-3 group uppercase tracking-widest text-xs shadow-xl shadow-primary/20"
                         >
                           Tovább <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </m.button>
@@ -269,14 +269,13 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="space-y-10"
+                      className="space-y-12"
                     >
-                      <div className="space-y-2">
-                        <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">02 / 10</span>
-                        <h3 className="text-3xl md:text-5xl font-bold text-[#042F2E] tracking-tighter">Mennyi munkaórát égetnek el a repetitív folyamatok?</h3>
-                        <p className="text-emerald-900/40 text-sm italic">Számolj a manuális adatmásolással, a hibák javításával és az adminisztrációval – céges szinten.</p>
+                      <div className="space-y-4">
+                        <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">02 / 10</span>
+                        <h3 className="text-4xl md:text-6xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Mennyi munkaórát égetnek el a repetitív folyamatok?</h3>
                       </div>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
                         {[
                           { id: '1-5', title: '1-5 óra', icon: <Calendar size={24} /> },
                           { id: '5-15', title: '5-15 óra', icon: <Activity size={24} /> },
@@ -301,13 +300,13 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="space-y-10"
+                      className="space-y-12"
                     >
-                      <div className="space-y-2">
-                        <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">03 / 10</span>
-                        <h3 className="text-2xl md:text-4xl font-bold text-[#042F2E] tracking-tighter leading-tight">Okozott-e már konkrét kárt az emberi mulasztás?</h3>
+                      <div className="space-y-4">
+                        <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">03 / 10</span>
+                        <h3 className="text-4xl md:text-6xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Okozott-e már konkrét kárt az emberi mulasztás?</h3>
                       </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         {[
                           { id: 'rare', title: 'Ritkán, de akkor nagy a baj', icon: <Shield size={24} /> },
                           { id: 'weekly', title: 'Heti szinten javítunk elírásokat', icon: <FileText size={24} /> },
@@ -332,13 +331,13 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="space-y-10"
+                      className="space-y-12"
                     >
-                      <div className="space-y-2">
-                        <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">04 / 10</span>
-                        <h3 className="text-3xl md:text-5xl font-bold text-[#042F2E] tracking-tighter">Bírná a rendszered, ha holnaptól 2x annyi ügyfeled lenne?</h3>
+                      <div className="space-y-4">
+                        <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">04 / 10</span>
+                        <h3 className="text-4xl md:text-6xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Bírná a rendszered a növekedést?</h3>
                       </div>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                         {[
                           { id: 'yes', title: 'Igen, simán bírná', icon: <Shield size={24} /> },
                           { id: 'maybe', title: 'Valószínűleg megroppanna', icon: <Activity size={24} /> },
@@ -362,14 +361,13 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="space-y-10"
+                      className="space-y-12"
                     >
-                      <div className="space-y-2">
-                        <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">05 / 10</span>
-                        <h3 className="text-3xl md:text-5xl font-bold text-[#042F2E] tracking-tighter">Milyen eszközöket használtok jelenleg?</h3>
-                        <p className="text-emerald-900/40 text-sm italic">Többet is választhatsz</p>
+                      <div className="space-y-4">
+                        <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">05 / 10</span>
+                        <h3 className="text-4xl md:text-6xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Milyen eszközöket használtok jelenleg?</h3>
                       </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         {[
                           { id: 'google', title: 'Google Workspace / Sheets', icon: <Workflow size={24} /> },
                           { id: 'ms', title: 'Microsoft 365 / Excel', icon: <Database size={24} /> },
@@ -393,13 +391,13 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                           />
                         ))}
                       </div>
-                      <div className="flex justify-end pt-4">
+                      <div className="flex justify-end pt-8">
                         <m.button
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                           onClick={nextStep}
                           disabled={formData.techStacks.length === 0}
-                          className="px-8 py-4 bg-white/10 hover:bg-teal-500 hover:text-black disabled:opacity-30 disabled:hover:bg-white/10 disabled:hover:text-white text-white font-bold rounded-2xl transition-all flex items-center gap-2 group"
+                          className="px-10 py-5 bg-primary text-white disabled:opacity-30 font-black rounded-2xl transition-all flex items-center gap-3 group uppercase tracking-widest text-xs shadow-xl shadow-primary/20"
                         >
                           Tovább <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </m.button>
@@ -413,13 +411,13 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="space-y-10"
+                      className="space-y-12"
                     >
-                      <div className="space-y-2">
-                        <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">06 / 10</span>
-                        <h3 className="text-3xl md:text-5xl font-bold text-[#042F2E] tracking-tighter">Mennyire "beszélgetnek" egymással a szoftvereid?</h3>
+                      <div className="space-y-4">
+                        <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">06 / 10</span>
+                        <h3 className="text-4xl md:text-6xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Mennyire "beszélgetnek" egymással a szoftvereid?</h3>
                       </div>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                         {[
                           { id: 'full', title: 'Teljes az integráció', icon: <Workflow size={24} /> },
                           { id: 'partial', title: 'Néha kézzel kell másolni adatokat', icon: <Database size={24} /> },
@@ -443,13 +441,13 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="space-y-10"
+                      className="space-y-12"
                     >
-                      <div className="space-y-2">
-                        <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">07 / 10</span>
-                        <h3 className="text-3xl md:text-5xl font-bold text-[#042F2E] tracking-tighter">Hány kolléga munkáját lassítják a manuális folyamatok?</h3>
+                      <div className="space-y-4">
+                        <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">07 / 10</span>
+                        <h3 className="text-4xl md:text-6xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Hány kolléga munkáját lassítják a folyamatok?</h3>
                       </div>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
                         {[
                           { id: 'onlyme', title: 'Csak engem', icon: <Fingerprint size={24} /> },
                           { id: '2-5', title: '2-5 fő', icon: <Database size={24} /> },
@@ -474,18 +472,18 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="space-y-10"
+                      className="space-y-12"
                     >
-                      <div className="space-y-2">
-                        <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">08 / 10</span>
-                        <h3 className="text-2xl md:text-4xl font-bold text-[#042F2E] tracking-tighter leading-tight">Mi lenne a legfontosabb eredmény számodra?</h3>
+                      <div className="space-y-4">
+                        <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">08 / 10</span>
+                        <h3 className="text-4xl md:text-6xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Mi lenne a legfontosabb eredmény?</h3>
                       </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         {[
                           { id: 'scale', title: 'Skálázhatóság és növekedés', icon: <Zap size={24} /> },
-                          { id: 'time', title: 'Drasztikus időmegtakarítás a mindennapokban', icon: <Brain size={24} /> },
-                          { id: 'cost', title: 'Alacsonyabb költségek, magasabb profit', icon: <Settings size={24} /> },
-                          { id: 'peace', title: 'Hibamentes munka és teljes nyugalom', icon: <CheckCircle2 size={24} /> }
+                          { id: 'time', title: 'Drasztikus időmegtakarítás', icon: <Brain size={24} /> },
+                          { id: 'cost', title: 'Alacsonyabb költségek', icon: <Settings size={24} /> },
+                          { id: 'peace', title: 'Hibamentes munka', icon: <CheckCircle2 size={24} /> }
                         ].map((opt) => (
                           <SelectionCard 
                             key={opt.id}
@@ -505,17 +503,17 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="space-y-10"
+                      className="space-y-12"
                     >
-                      <div className="space-y-2">
-                        <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">09 / 10</span>
-                        <h3 className="text-3xl md:text-5xl font-bold text-[#042F2E] tracking-tighter">Mikorra szeretnéd látni az első eredményeket?</h3>
+                      <div className="space-y-4">
+                        <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">09 / 10</span>
+                        <h3 className="text-4xl md:text-6xl font-bold text-primary tracking-tighter font-heading leading-[1.1]">Mikorra szeretnéd az eredményeket?</h3>
                       </div>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                         {[
-                          { id: 'now', title: 'Azonnal (égető a probléma)', icon: <Zap size={24} /> },
+                          { id: 'now', title: 'Azonnal (égető)', icon: <Zap size={24} /> },
                           { id: 'month', title: '1 hónapon belül', icon: <Calendar size={24} /> },
-                          { id: 'search', title: 'Csak tájékozódom egyelőre', icon: <Fingerprint size={24} /> }
+                          { id: 'search', title: 'Csak tájékozódom', icon: <Fingerprint size={24} /> }
                         ].map((opt) => (
                           <SelectionCard 
                             key={opt.id}
@@ -535,53 +533,53 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="space-y-10"
+                      className="space-y-12"
                     >
-                      <div className="space-y-4">
-                        <span className="text-teal-400 text-[10px] font-black uppercase tracking-[0.3em]">10 / 10</span>
-                        <h3 className="text-4xl md:text-6xl font-bold text-[#042F2E] tracking-tighter leading-none">Kihez küldhetjük a diagnózist?</h3>
+                      <div className="space-y-6">
+                        <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">10 / 10</span>
+                        <h3 className="text-5xl md:text-7xl font-bold text-primary tracking-tighter font-heading leading-none">Küldhetjük a diagnózist?</h3>
                       </div>
-                      <div className="space-y-4">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <div className="space-y-2">
-                            <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest pl-2">Név</label>
+                      <div className="space-y-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                          <div className="space-y-3">
+                            <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-2">Név</label>
                             <input
                               type="text"
                               value={formData.name}
                               onChange={(e) => setFormData({...formData, name: e.target.value})}
                               placeholder="Teljes neved"
-                              className="w-full bg-teal-500/5 border border-teal-500/10 rounded-2xl px-6 py-4 text-[#042F2E] placeholder:text-emerald-900/30 focus:outline-none focus:border-teal-500/50 transition-colors"
+                              className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-8 py-5 text-primary placeholder:text-slate-300 focus:outline-none focus:border-accent transition-all font-body"
                             />
                           </div>
-                          <div className="space-y-2">
-                            <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest pl-2">Cégnév</label>
+                          <div className="space-y-3">
+                            <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-2">Cégnév</label>
                             <input
                               type="text"
                               value={formData.companyName}
                               onChange={(e) => setFormData({...formData, companyName: e.target.value})}
                               placeholder="Vállalkozásod neve"
-                              className="w-full bg-teal-500/5 border border-teal-500/10 rounded-2xl px-6 py-4 text-[#042F2E] placeholder:text-emerald-900/30 focus:outline-none focus:border-teal-500/50 transition-colors"
+                              className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-8 py-5 text-primary placeholder:text-slate-300 focus:outline-none focus:border-accent transition-all font-body"
                             />
                           </div>
                         </div>
-                        <div className="space-y-2">
-                          <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest pl-2">Email</label>
+                        <div className="space-y-3">
+                          <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-2">Email</label>
                           <input
                             type="email"
                             value={formData.email}
                             onChange={(e) => setFormData({...formData, email: e.target.value})}
                             placeholder="Munkahelyi e-mail"
-                            className="w-full bg-teal-500/5 border border-teal-500/10 rounded-2xl px-6 py-4 text-[#042F2E] placeholder:text-emerald-900/30 focus:outline-none focus:border-teal-500/50 transition-colors"
+                            className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-8 py-5 text-primary placeholder:text-slate-300 focus:outline-none focus:border-accent transition-all font-body"
                           />
                         </div>
-                        <div className="space-y-2">
-                          <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest pl-2">További megjegyzések (Opcionális)</label>
+                        <div className="space-y-3">
+                          <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-2">Megjegyzés (Opcionális)</label>
                           <textarea
                             value={formData.comment}
                             onChange={(e) => setFormData({...formData, comment: e.target.value})}
                             placeholder="Van-e bármi, amit még kiemelne?"
                             rows={3}
-                            className="w-full bg-teal-500/5 border border-teal-500/10 rounded-2xl px-6 py-4 text-[#042F2E] placeholder:text-emerald-900/30 focus:outline-none focus:border-teal-500/50 transition-colors resize-none"
+                            className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-8 py-5 text-primary placeholder:text-slate-300 focus:outline-none focus:border-accent transition-all resize-none font-body"
                           />
                         </div>
                         <m.button
@@ -589,7 +587,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                           whileTap={{ scale: 0.98 }}
                           onClick={submitForm}
                           disabled={!formData.name || !formData.email || !formData.companyName}
-                          className="w-full py-5 bg-teal-500 disabled:bg-gray-800 disabled:text-gray-600 text-black font-black rounded-2xl transition-all shadow-[0_20px_50px_-10px_rgba(45,212,191,0.4)] flex items-center justify-center gap-3 uppercase tracking-widest text-xs"
+                          className="w-full py-6 bg-primary text-white disabled:bg-slate-200 disabled:text-slate-400 font-black rounded-2xl transition-all shadow-2xl shadow-primary/20 flex items-center justify-center gap-4 uppercase tracking-widest text-xs"
                         >
                           Elemzés Indítása <ArrowRight size={18} />
                         </m.button>
@@ -602,32 +600,32 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       key="step11"
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      className="text-center py-10 space-y-8"
+                      className="text-center py-10 space-y-12"
                     >
                       <div className="relative inline-block">
                         <m.div 
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
                           transition={{ type: "spring", damping: 12 }}
-                          className="w-24 h-24 rounded-full bg-teal-500/20 flex items-center justify-center border border-teal-500/30"
+                          className="w-28 h-28 rounded-full bg-accent/10 flex items-center justify-center border-2 border-accent"
                         >
-                          <CheckCircle2 className="w-12 h-12 text-teal-400" />
+                          <CheckCircle2 className="w-14 h-14 text-accent" />
                         </m.div>
                         <m.div 
-                          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0, 0.5] }}
+                          animate={{ scale: [1, 1.3, 1], opacity: [0.6, 0, 0.6] }}
                           transition={{ repeat: Infinity, duration: 2 }}
-                          className="absolute inset-0 rounded-full border border-teal-500/50"
+                          className="absolute inset-0 rounded-full border-2 border-accent"
                         />
                       </div>
-                      <div className="space-y-4">
-                        <h3 className="text-4xl font-bold text-[#042F2E] tracking-tighter italic">Köszönjük!</h3>
-                        <p className="text-emerald-900/40 text-lg max-w-sm mx-auto">
-                          Az audit sikeresen lezárult. Rendszerünk elemzi az adataidat; hamarosan érkezünk a <span className="text-teal-400 font-bold underline">diagnosztikai riporttal</span> és a következő lépésekkel.
+                      <div className="space-y-6">
+                        <h3 className="text-5xl font-bold text-primary tracking-tighter italic font-heading">Köszönjük!</h3>
+                        <p className="text-secondary text-xl max-w-sm mx-auto font-body leading-relaxed">
+                          Az audit sikeresen lezárult. Hamarosan érkezünk a <span className="text-accent font-bold underline">diagnosztikai riporttal</span> és a következő lépésekkel.
                         </p>
                       </div>
                       <button 
                         onClick={onClose}
-                        className="text-emerald-900/40 hover:text-[#042F2E] transition-colors text-xs font-bold uppercase tracking-widest"
+                        className="text-secondary hover:text-primary transition-colors text-xs font-black uppercase tracking-widest border-b border-transparent hover:border-primary pb-1"
                       >
                         Ablak bezárása
                       </button>
@@ -639,7 +637,7 @@ export const AuditModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       onClick={prevStep}
-                      className="mt-8 flex items-center gap-2 text-emerald-900/40 hover:text-[#042F2E] transition-colors text-sm font-bold uppercase tracking-widest group"
+                      className="mt-12 flex items-center gap-3 text-secondary hover:text-primary transition-colors text-xs font-black uppercase tracking-widest group"
                     >
                       <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Vissza
                     </m.button>

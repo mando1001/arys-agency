@@ -29,50 +29,50 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-[#F2F9F7]">
+    <section className="relative min-h-screen flex items-center pt-48 pb-20 overflow-hidden bg-background">
       {/* Premium Background Effects */}
       <div className="absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)] gpu-accel will-change-transform">
-        <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[40px] md:blur-[60px] gpu-accel" />
-        <div className="absolute bottom-0 -left-20 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[30px] md:blur-[50px] gpu-accel" />
-        <div className="absolute inset-0 bg-grid-white opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
+        <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[60px] md:blur-[100px] animate-pulse" />
+        <div className="absolute bottom-0 -left-20 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[50px] md:blur-[80px]" />
+        <div className="absolute inset-0 bg-grid-slate opacity-60" />
       </div>
 
       <div
         className="relative max-w-7xl mx-auto px-6 z-10 text-center flex flex-col items-center gpu-accel"
       >
         <div 
-          className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/10 border border-teal-500/20 rounded-full text-teal-600 text-[10px] uppercase tracking-[0.3em] font-black mb-8 backdrop-blur-sm"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent/10 border border-accent/20 rounded-full text-accent text-[10px] uppercase tracking-[0.4em] font-black mb-10 backdrop-blur-sm"
         >
-          <span className="w-1.5 h-1.5 bg-teal-500 rounded-full shadow-[0_0_10px_#2dd4bf]" />
+          <span className="w-1.5 h-1.5 bg-accent rounded-full shadow-[0_0_12px_#14B8A6]" />
           Valódi Üzleti Automatizáció
         </div>
 
         <h1 
-          className="text-6xl md:text-8xl lg:text-[6.5rem] font-bold tracking-tighter leading-[1.05] md:leading-[0.9] mb-8 text-[#042F2E]"
+          className="text-6xl md:text-8xl lg:text-[7.5rem] font-bold tracking-tighter leading-[1.05] md:leading-[0.85] mb-10 text-primary font-heading"
         >
-          Növeld a <span className="inline-block bg-gradient-to-r from-teal-500 to-blue-600 bg-clip-text text-transparent italic px-4 py-2 [-webkit-box-decoration-break:clone] [box-decoration-break:clone]">profitot</span>, <br />
-          csökkentsd a céges káoszt.
+          Növeld a <span className="inline-block text-accent-gradient italic px-2">profitot</span>, <br />
+          csökkentsd a <span className="text-secondary">káoszt.</span>
         </h1>
 
         <p 
-          className="text-lg md:text-2xl text-emerald-900/70 max-w-4xl text-center leading-relaxed mb-12 font-medium"
+          className="text-lg md:text-2xl text-secondary max-w-4xl text-center leading-relaxed mb-16 font-body"
         >
           Az ARYS célja, hogy levegye a manuális adminisztrációt, az elvesző leadeket és a belső kavarodást a csapatod válláról. Gyorsabb válaszok, kevesebb hiba, több lezárt ügy — úgy, hogy közben nem kell új embereket felvenned minden növekedési lépéshez.
         </p>
 
         <div 
-          className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto"
+          className="flex flex-col sm:flex-row gap-8 w-full sm:w-auto mb-24"
         >
           <a 
             href="#audit" 
-            className="px-10 py-5 bg-teal-500 hover:bg-teal-400 text-[#042F2E] font-extrabold rounded-2xl transition-all shadow-[0_20px_50px_-10px_rgba(45,212,191,0.4)] text-sm flex items-center justify-center gap-3 group"
+            className="px-12 py-6 bg-primary hover:bg-secondary text-white font-black rounded-2xl transition-all shadow-2xl shadow-primary/20 text-sm flex items-center justify-center gap-3 group tracking-widest uppercase"
           >
             Ingyenes Cégdiagnosztika
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
           <a 
             href="#megoldasok" 
-            className="px-10 py-5 border border-teal-500/20 hover:border-teal-500/40 text-[#042F2E] font-bold text-sm rounded-2xl transition-all flex items-center justify-center backdrop-blur-sm"
+            className="px-12 py-6 border-2 border-primary text-primary font-bold text-sm rounded-2xl transition-all flex items-center justify-center hover:bg-primary hover:text-white tracking-widest uppercase"
           >
             Megoldások
           </a>
